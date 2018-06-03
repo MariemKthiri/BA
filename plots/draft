@@ -1,0 +1,190 @@
+\iffalse
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}%[trim axis left, trim axis right]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 0, xmax = 130,
+    ylabel={\small MSE},
+    xlabel={\small nAntennas},
+    title={},
+    legend entries={
+        \footnotesize CircSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU
+        \footnotesize ToepSoftmax
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {SparseRecoveryRandom.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {SparseRecoveryRandom.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {SparseRecoveryRandom.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {SparseRecoveryRandom.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {SparseRecoveryRandom.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {SparseRecoveryRandom.csv};
+\end{axis}
+\end{tikzpicture}
+\caption{
+    SparseRecoveryRandom.csv
+}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}%[trim axis left, trim axis right]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 0, xmax = 130,
+    ylabel={\small MSE},
+    xlabel={\small nAntennas},
+    title={},
+    legend entries={
+        \footnotesize CircSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU
+        \footnotesize ToepSoftmax
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {SparseRecoveryUnitary.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {SparseRecoveryUnitary.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {SparseRecoveryUnitary.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {SparseRecoveryUnitary.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {SparseRecoveryUnitary.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {SparseRecoveryUnitary.csv};
+\end{axis}
+\end{tikzpicture}
+\caption{
+    SparseRecoveryUnitary.csv
+}
+\end{figure}
+\fi
+
+
+
+
+\iffalse
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}%[trim axis left, trim axis right]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 0, xmax = 130,
+    ylabel={\small rate},
+    xlabel={\small nAntennas},
+    title={},
+    legend entries={
+        \footnotesize CircSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU
+        \footnotesize ToepSoftmax
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {SparseRecoveryRandom.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {SparseRecoveryRandom.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {SparseRecoveryRandom.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {SparseRecoveryRandom.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {SparseRecoveryRandom.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {SparseRecoveryRandom.csv};
+
+\end{axis}
+\end{tikzpicture}
+\caption{
+    SparseRecoveryRandom.csv
+}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}%[trim axis left, trim axis right]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 0, xmax = 130,
+    ylabel={\small rate},
+    xlabel={\small nAntennas},
+    title={},
+    legend entries={
+        \footnotesize CircSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU
+        \footnotesize ToepSoftmax
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {SparseRecoveryUnitary.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {SparseRecoveryUnitary.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {SparseRecoveryUnitary.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {SparseRecoveryUnitary.csv};
+
+\end{axis}
+\end{tikzpicture}
+\caption{
+    SparseRecoveryUnitary.csv
+}
+\end{figure}
+\fi

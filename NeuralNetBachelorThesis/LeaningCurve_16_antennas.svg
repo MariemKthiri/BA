@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:gadfly="http://www.gadflyjl.org/ns"
+     version="1.2"
+     width="76.2mm" height="76.2mm" viewBox="0 0 76.2 76.2"
+     stroke="none"
+     fill="#000000"
+     stroke-width="0.3"
+     font-size="3.88"
+>
+<g class="plotroot xscalable yscalable" id="img-04c4f435-1">
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="img-04c4f435-2">
+    <text x="31.47" y="65.38" text-anchor="middle" dy="0.6em">Iteration</text>
+  </g>
+  <g class="guide xlabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="img-04c4f435-3">
+    <text x="22.17" y="49.74" text-anchor="end" dy="0.35em" transform="rotate(-90, 22.17, 49.74)">0</text>
+    <text x="25.27" y="49.74" text-anchor="end" dy="0.35em" transform="rotate(-90, 25.27, 49.74)">1.0×10³</text>
+    <text x="28.37" y="49.74" text-anchor="end" dy="0.35em" transform="rotate(-90, 28.37, 49.74)">2.0×10³</text>
+    <text x="31.47" y="49.74" text-anchor="end" dy="0.35em" transform="rotate(-90, 31.47, 49.74)">3.0×10³</text>
+    <text x="34.57" y="49.74" text-anchor="end" dy="0.35em" transform="rotate(-90, 34.57, 49.74)">4.0×10³</text>
+    <text x="37.67" y="49.74" text-anchor="end" dy="0.35em" transform="rotate(-90, 37.67, 49.74)">5.0×10³</text>
+    <text x="40.77" y="49.74" text-anchor="end" dy="0.35em" transform="rotate(-90, 40.77, 49.74)">6.0×10³</text>
+  </g>
+  <g class="guide colorkey" id="img-04c4f435-4">
+    <g fill="#4C404B" font-size="2.82" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" id="img-04c4f435-5">
+      <text x="46.86" y="16.43" dy="0.35em" id="img-04c4f435-6" class="color_CircSoftmax">CircSoftmax</text>
+      <text x="46.86" y="20.61" dy="0.35em" id="img-04c4f435-7" class="color_IdReLU">IdReLU</text>
+      <text x="46.86" y="24.78" dy="0.35em" id="img-04c4f435-8" class="color_IdSoftmax">IdSoftmax</text>
+      <text x="46.86" y="28.96" dy="0.35em" id="img-04c4f435-9" class="color_ToepReLU">ToepReLU</text>
+      <text x="46.86" y="33.13" dy="0.35em" id="img-04c4f435-10" class="color_GenieAidedMMSE">GenieAidedMMSE</text>
+      <text x="46.86" y="37.31" dy="0.35em" id="img-04c4f435-11" class="color_CircReLU">CircReLU</text>
+      <text x="46.86" y="41.48" dy="0.35em" id="img-04c4f435-12" class="color_ToepSoftmax">ToepSoftmax</text>
+    </g>
+    <g stroke="#000000" stroke-opacity="0.000" id="img-04c4f435-13">
+      <rect x="43.77" y="15.39" width="2.09" height="2.09" id="img-04c4f435-14" class="color_CircSoftmax" fill="#00BFFF"/>
+      <rect x="43.77" y="19.56" width="2.09" height="2.09" id="img-04c4f435-15" class="color_IdReLU" fill="#D4CA3A"/>
+      <rect x="43.77" y="23.74" width="2.09" height="2.09" id="img-04c4f435-16" class="color_IdSoftmax" fill="#FF6DAE"/>
+      <rect x="43.77" y="27.91" width="2.09" height="2.09" id="img-04c4f435-17" class="color_ToepReLU" fill="#00B78D"/>
+      <rect x="43.77" y="32.09" width="2.09" height="2.09" id="img-04c4f435-18" class="color_GenieAidedMMSE" fill="#BEA9FF"/>
+      <rect x="43.77" y="36.26" width="2.09" height="2.09" id="img-04c4f435-19" class="color_CircReLU" fill="#FF6765"/>
+      <rect x="43.77" y="40.44" width="2.09" height="2.09" id="img-04c4f435-20" class="color_ToepSoftmax" fill="#C6C6C6"/>
+    </g>
+    <g fill="#362A35" font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" stroke="#000000" stroke-opacity="0.000" id="img-04c4f435-21">
+      <text x="43.77" y="12.02" id="img-04c4f435-22">Algorithm</text>
+    </g>
+  </g>
+<g clip-path="url(#img-04c4f435-23)">
+  <g id="img-04c4f435-24">
+    <g pointer-events="visible" opacity="1" fill="#000000" fill-opacity="0.000" stroke="#000000" stroke-opacity="0.000" class="guide background" id="img-04c4f435-25">
+      <rect x="20.17" y="5" width="22.6" height="43.74" id="img-04c4f435-26"/>
+    </g>
+    <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="img-04c4f435-27">
+      <path fill="none" d="M20.17,46.74 L 42.77 46.74" id="img-04c4f435-28"/>
+      <path fill="none" d="M20.17,36.8 L 42.77 36.8" id="img-04c4f435-29"/>
+      <path fill="none" d="M20.17,26.87 L 42.77 26.87" id="img-04c4f435-30"/>
+      <path fill="none" d="M20.17,16.93 L 42.77 16.93" id="img-04c4f435-31"/>
+      <path fill="none" d="M20.17,7 L 42.77 7" id="img-04c4f435-32"/>
+    </g>
+    <g class="guide xgridlines yfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="img-04c4f435-33">
+      <path fill="none" d="M22.17,5 L 22.17 48.74" id="img-04c4f435-34"/>
+      <path fill="none" d="M25.27,5 L 25.27 48.74" id="img-04c4f435-35"/>
+      <path fill="none" d="M28.37,5 L 28.37 48.74" id="img-04c4f435-36"/>
+      <path fill="none" d="M31.47,5 L 31.47 48.74" id="img-04c4f435-37"/>
+      <path fill="none" d="M34.57,5 L 34.57 48.74" id="img-04c4f435-38"/>
+      <path fill="none" d="M37.67,5 L 37.67 48.74" id="img-04c4f435-39"/>
+      <path fill="none" d="M40.77,5 L 40.77 48.74" id="img-04c4f435-40"/>
+    </g>
+    <g class="plotpanel" id="img-04c4f435-41">
+      <g stroke-width="0.3" fill="#000000" fill-opacity="0.000" stroke-dasharray="none" id="img-04c4f435-42">
+        <path fill="none" d="M23.72,36.48 L 25.27 37.17 26.82 35.7 28.37 32.07 29.92 29.91 31.47 28.54 33.02 28.27 34.57 28.38 36.12 28.51 37.67 28.72 39.22 28.96 40.77 29.04" id="img-04c4f435-43" stroke="#00B78D" class="geometry color_ToepReLU"/>
+        <path fill="none" d="M23.72,36.71 L 25.27 38.28 26.82 38.26 28.37 38.18 29.92 36.51 31.47 35.07 33.02 33.43 34.57 32.76 36.12 32.31 37.67 32.12 39.22 32.25 40.77 32.52" id="img-04c4f435-44" stroke="#00BFFF" class="geometry color_CircSoftmax"/>
+        <path fill="none" d="M23.72,41.86 L 25.27 41.86 26.82 41.86 28.37 41.86 29.92 41.86 31.47 41.86 33.02 41.86 34.57 41.86 36.12 41.86 37.67 41.86 39.22 41.86 40.77 41.86" id="img-04c4f435-45" stroke="#BEA9FF" class="geometry color_GenieAidedMMSE"/>
+        <path fill="none" d="M23.72,32.89 L 25.27 35.33 26.82 29.03 28.37 25.68 29.92 18.33 31.47 17.64 33.02 16.69 34.57 16.17 36.12 15.1 37.67 13.71 39.22 13.14 40.77 13.11" id="img-04c4f435-46" stroke="#C6C6C6" class="geometry color_ToepSoftmax"/>
+        <path fill="none" d="M23.72,39.95 L 25.27 41.48 26.82 40.35 28.37 36.38 29.92 36.9 31.47 37.38 33.02 37.58 34.57 37.39 36.12 37.47 37.67 37.57 39.22 37.56 40.77 37.51" id="img-04c4f435-47" stroke="#D4CA3A" class="geometry color_IdReLU"/>
+        <path fill="none" d="M23.72,37.4 L 25.27 38.88 26.82 38.18 28.37 35.94 29.92 32.41 31.47 27.87 33.02 25.35 34.57 24.37 36.12 23.74 37.67 22.98 39.22 22.98 40.77 22.06" id="img-04c4f435-48" stroke="#FF6765" class="geometry color_CircReLU"/>
+        <path fill="none" d="M23.72,36.37 L 25.27 41.97 26.82 39.04 28.37 35.45 29.92 32.9 31.47 31.76 33.02 30.89 34.57 30.23 36.12 29.91 37.67 29.76 39.22 29.59 40.77 29.27" id="img-04c4f435-49" stroke="#FF6DAE" class="geometry color_IdSoftmax"/>
+      </g>
+      <g class="geometry" id="img-04c4f435-50">
+        <g stroke-width="0.3" id="img-04c4f435-51">
+          <g class="color_ToepSoftmax" stroke="#FFFFFF" fill="#C6C6C6" id="img-04c4f435-52">
+            <use xlink:href="#img-04c4f435-53" x="40.77" y="13.11" id="img-04c4f435-54"/>
+          </g>
+          <g class="color_CircReLU" stroke="#FFFFFF" fill="#FF6765" id="img-04c4f435-55">
+            <use xlink:href="#img-04c4f435-56" x="40.77" y="22.06" id="img-04c4f435-57"/>
+          </g>
+          <g class="color_GenieAidedMMSE" stroke="#FFFFFF" fill="#BEA9FF" id="img-04c4f435-58">
+            <use xlink:href="#img-04c4f435-59" x="40.77" y="41.86" id="img-04c4f435-60"/>
+          </g>
+          <g class="color_ToepReLU" stroke="#FFFFFF" fill="#00B78D" id="img-04c4f435-61">
+            <use xlink:href="#img-04c4f435-62" x="40.77" y="29.04" id="img-04c4f435-63"/>
+          </g>
+          <g class="color_IdSoftmax" stroke="#FFFFFF" fill="#FF6DAE" id="img-04c4f435-64">
+            <use xlink:href="#img-04c4f435-65" x="40.77" y="29.27" id="img-04c4f435-66"/>
+          </g>
+          <g class="color_IdReLU" stroke="#FFFFFF" fill="#D4CA3A" id="img-04c4f435-67">
+            <use xlink:href="#img-04c4f435-68" x="40.77" y="37.51" id="img-04c4f435-69"/>
+          </g>
+          <g class="color_CircSoftmax" stroke="#FFFFFF" fill="#00BFFF" id="img-04c4f435-70">
+            <use xlink:href="#img-04c4f435-71" x="40.77" y="32.52" id="img-04c4f435-72"/>
+          </g>
+          <g class="color_ToepSoftmax" stroke="#FFFFFF" fill="#C6C6C6" id="img-04c4f435-73">
+            <use xlink:href="#img-04c4f435-74" x="39.22" y="13.14" id="img-04c4f435-75"/>
+          </g>
+          <g class="color_CircReLU" stroke="#FFFFFF" fill="#FF6765" id="img-04c4f435-76">
+            <use xlink:href="#img-04c4f435-77" x="39.22" y="22.98" id="img-04c4f435-78"/>
+          </g>
+          <g class="color_GenieAidedMMSE" stroke="#FFFFFF" fill="#BEA9FF" id="img-04c4f435-79">
+            <use xlink:href="#img-04c4f435-80" x="39.22" y="41.86" id="img-04c4f435-81"/>
+          </g>
+          <g class="color_ToepReLU" stroke="#FFFFFF" fill="#00B78D" id="img-04c4f435-82">
+            <use xlink:href="#img-04c4f435-83" x="39.22" y="28.96" id="img-04c4f435-84"/>
+          </g>
+          <g class="color_IdSoftmax" stroke="#FFFFFF" fill="#FF6DAE" id="img-04c4f435-85">
+            <use xlink:href="#img-04c4f435-86" x="39.22" y="29.59" id="img-04c4f435-87"/>
+          </g>
+          <g class="color_IdReLU" stroke="#FFFFFF" fill="#D4CA3A" id="img-04c4f435-88">
+            <use xlink:href="#img-04c4f435-89" x="39.22" y="37.56" id="img-04c4f435-90"/>
+          </g>
+          <g class="color_CircSoftmax" stroke="#FFFFFF" fill="#00BFFF" id="img-04c4f435-91">
+            <use xlink:href="#img-04c4f435-92" x="39.22" y="32.25" id="img-04c4f435-93"/>
+          </g>
+          <g class="color_ToepSoftmax" stroke="#FFFFFF" fill="#C6C6C6" id="img-04c4f435-94">
+            <use xlink:href="#img-04c4f435-95" x="37.67" y="13.71" id="img-04c4f435-96"/>
+          </g>
+          <g class="color_CircReLU" stroke="#FFFFFF" fill="#FF6765" id="img-04c4f435-97">
+            <use xlink:href="#img-04c4f435-98" x="37.67" y="22.98" id="img-04c4f435-99"/>
+          </g>
+          <g class="color_GenieAidedMMSE" stroke="#FFFFFF" fill="#BEA9FF" id="img-04c4f435-100">
+            <use xlink:href="#img-04c4f435-101" x="37.67" y="41.86" id="img-04c4f435-102"/>
+          </g>
+          <g class="color_ToepReLU" stroke="#FFFFFF" fill="#00B78D" id="img-04c4f435-103">
+            <use xlink:href="#img-04c4f435-104" x="37.67" y="28.72" id="img-04c4f435-105"/>
+          </g>
+          <g class="color_IdSoftmax" stroke="#FFFFFF" fill="#FF6DAE" id="img-04c4f435-106">
+            <use xlink:href="#img-04c4f435-107" x="37.67" y="29.76" id="img-04c4f435-108"/>
+          </g>
+          <g class="color_IdReLU" stroke="#FFFFFF" fill="#D4CA3A" id="img-04c4f435-109">
+            <use xlink:href="#img-04c4f435-110" x="37.67" y="37.57" id="img-04c4f435-111"/>
+          </g>
+          <g class="color_CircSoftmax" stroke="#FFFFFF" fill="#00BFFF" id="img-04c4f435-112">
+            <use xlink:href="#img-04c4f435-113" x="37.67" y="32.12" id="img-04c4f435-114"/>
+          </g>
+          <g class="color_ToepSoftmax" stroke="#FFFFFF" fill="#C6C6C6" id="img-04c4f435-115">
+            <use xlink:href="#img-04c4f435-116" x="36.12" y="15.1" id="img-04c4f435-117"/>
+          </g>
+          <g class="color_CircReLU" stroke="#FFFFFF" fill="#FF6765" id="img-04c4f435-118">
+            <use xlink:href="#img-04c4f435-119" x="36.12" y="23.74" id="img-04c4f435-120"/>
+          </g>
+          <g class="color_GenieAidedMMSE" stroke="#FFFFFF" fill="#BEA9FF" id="img-04c4f435-121">
+            <use xlink:href="#img-04c4f435-122" x="36.12" y="41.86" id="img-04c4f435-123"/>
+          </g>
+          <g class="color_ToepReLU" stroke="#FFFFFF" fill="#00B78D" id="img-04c4f435-124">
+            <use xlink:href="#img-04c4f435-125" x="36.12" y="28.51" id="img-04c4f435-126"/>
+          </g>
+          <g class="color_IdSoftmax" stroke="#FFFFFF" fill="#FF6DAE" id="img-04c4f435-127">
+            <use xlink:href="#img-04c4f435-128" x="36.12" y="29.91" id="img-04c4f435-129"/>
+          </g>
+          <g class="color_IdReLU" stroke="#FFFFFF" fill="#D4CA3A" id="img-04c4f435-130">
+            <use xlink:href="#img-04c4f435-131" x="36.12" y="37.47" id="img-04c4f435-132"/>
+          </g>
+          <g class="color_CircSoftmax" stroke="#FFFFFF" fill="#00BFFF" id="img-04c4f435-133">
+            <use xlink:href="#img-04c4f435-134" x="36.12" y="32.31" id="img-04c4f435-135"/>
+          </g>
+          <g class="color_ToepSoftmax" stroke="#FFFFFF" fill="#C6C6C6" id="img-04c4f435-136">
+            <use xlink:href="#img-04c4f435-137" x="34.57" y="16.17" id="img-04c4f435-138"/>
+          </g>
+          <g class="color_CircReLU" stroke="#FFFFFF" fill="#FF6765" id="img-04c4f435-139">
+            <use xlink:href="#img-04c4f435-140" x="34.57" y="24.37" id="img-04c4f435-141"/>
+          </g>
+          <g class="color_GenieAidedMMSE" stroke="#FFFFFF" fill="#BEA9FF" id="img-04c4f435-142">
+            <use xlink:href="#img-04c4f435-143" x="34.57" y="41.86" id="img-04c4f435-144"/>
+          </g>
+          <g class="color_ToepReLU" stroke="#FFFFFF" fill="#00B78D" id="img-04c4f435-145">
+            <use xlink:href="#img-04c4f435-146" x="34.57" y="28.38" id="img-04c4f435-147"/>
+          </g>
+          <g class="color_IdSoftmax" stroke="#FFFFFF" fill="#FF6DAE" id="img-04c4f435-148">
+            <use xlink:href="#img-04c4f435-149" x="34.57" y="30.23" id="img-04c4f435-150"/>
+          </g>
+          <g class="color_IdReLU" stroke="#FFFFFF" fill="#D4CA3A" id="img-04c4f435-151">
+            <use xlink:href="#img-04c4f435-152" x="34.57" y="37.39" id="img-04c4f435-153"/>
+          </g>
+          <g class="color_CircSoftmax" stroke="#FFFFFF" fill="#00BFFF" id="img-04c4f435-154">
+            <use xlink:href="#img-04c4f435-155" x="34.57" y="32.76" id="img-04c4f435-156"/>
+          </g>
+          <g class="color_ToepSoftmax" stroke="#FFFFFF" fill="#C6C6C6" id="img-04c4f435-157">
+            <use xlink:href="#img-04c4f435-158" x="33.02" y="16.69" id="img-04c4f435-159"/>
+          </g>
+          <g class="color_CircReLU" stroke="#FFFFFF" fill="#FF6765" id="img-04c4f435-160">
+            <use xlink:href="#img-04c4f435-161" x="33.02" y="25.35" id="img-04c4f435-162"/>
+          </g>
+          <g class="color_GenieAidedMMSE" stroke="#FFFFFF" fill="#BEA9FF" id="img-04c4f435-163">
+            <use xlink:href="#img-04c4f435-164" x="33.02" y="41.86" id="img-04c4f435-165"/>
+          </g>
+          <g class="color_ToepReLU" stroke="#FFFFFF" fill="#00B78D" id="img-04c4f435-166">
+            <use xlink:href="#img-04c4f435-167" x="33.02" y="28.27" id="img-04c4f435-168"/>
+          </g>
+          <g class="color_IdSoftmax" stroke="#FFFFFF" fill="#FF6DAE" id="img-04c4f435-169">
+            <use xlink:href="#img-04c4f435-170" x="33.02" y="30.89" id="img-04c4f435-171"/>
+          </g>
+          <g class="color_IdReLU" stroke="#FFFFFF" fill="#D4CA3A" id="img-04c4f435-172">
+            <use xlink:href="#img-04c4f435-173" x="33.02" y="37.58" id="img-04c4f435-174"/>
+          </g>
+          <g class="color_CircSoftmax" stroke="#FFFFFF" fill="#00BFFF" id="img-04c4f435-175">
+            <use xlink:href="#img-04c4f435-176" x="33.02" y="33.43" id="img-04c4f435-177"/>
+          </g>
+          <g class="color_ToepSoftmax" stroke="#FFFFFF" fill="#C6C6C6" id="img-04c4f435-178">
+            <use xlink:href="#img-04c4f435-179" x="31.47" y="17.64" id="img-04c4f435-180"/>
+          </g>
+          <g class="color_CircReLU" stroke="#FFFFFF" fill="#FF6765" id="img-04c4f435-181">
+            <use xlink:href="#img-04c4f435-182" x="31.47" y="27.87" id="img-04c4f435-183"/>
+          </g>
+          <g class="color_GenieAidedMMSE" stroke="#FFFFFF" fill="#BEA9FF" id="img-04c4f435-184">
+            <use xlink:href="#img-04c4f435-185" x="31.47" y="41.86" id="img-04c4f435-186"/>
+          </g>
+          <g class="color_ToepReLU" stroke="#FFFFFF" fill="#00B78D" id="img-04c4f435-187">
+            <use xlink:href="#img-04c4f435-188" x="31.47" y="28.54" id="img-04c4f435-189"/>
+          </g>
+          <g class="color_IdSoftmax" stroke="#FFFFFF" fill="#FF6DAE" id="img-04c4f435-190">
+            <use xlink:href="#img-04c4f435-191" x="31.47" y="31.76" id="img-04c4f435-192"/>
+          </g>
+          <g class="color_IdReLU" stroke="#FFFFFF" fill="#D4CA3A" id="img-04c4f435-193">
+            <use xlink:href="#img-04c4f435-194" x="31.47" y="37.38" id="img-04c4f435-195"/>
+          </g>
+          <g class="color_CircSoftmax" stroke="#FFFFFF" fill="#00BFFF" id="img-04c4f435-196">
+            <use xlink:href="#img-04c4f435-197" x="31.47" y="35.07" id="img-04c4f435-198"/>
+          </g>
+          <g class="color_ToepSoftmax" stroke="#FFFFFF" fill="#C6C6C6" id="img-04c4f435-199">
+            <use xlink:href="#img-04c4f435-200" x="29.92" y="18.33" id="img-04c4f435-201"/>
+          </g>
+          <g class="color_CircReLU" stroke="#FFFFFF" fill="#FF6765" id="img-04c4f435-202">
+            <use xlink:href="#img-04c4f435-203" x="29.92" y="32.41" id="img-04c4f435-204"/>
+          </g>
+          <g class="color_GenieAidedMMSE" stroke="#FFFFFF" fill="#BEA9FF" id="img-04c4f435-205">
+            <use xlink:href="#img-04c4f435-206" x="29.92" y="41.86" id="img-04c4f435-207"/>
+          </g>
+          <g class="color_ToepReLU" stroke="#FFFFFF" fill="#00B78D" id="img-04c4f435-208">
+            <use xlink:href="#img-04c4f435-209" x="29.92" y="29.91" id="img-04c4f435-210"/>
+          </g>
+          <g class="color_IdSoftmax" stroke="#FFFFFF" fill="#FF6DAE" id="img-04c4f435-211">
+            <use xlink:href="#img-04c4f435-212" x="29.92" y="32.9" id="img-04c4f435-213"/>
+          </g>
+          <g class="color_IdReLU" stroke="#FFFFFF" fill="#D4CA3A" id="img-04c4f435-214">
+            <use xlink:href="#img-04c4f435-215" x="29.92" y="36.9" id="img-04c4f435-216"/>
+          </g>
+          <g class="color_CircSoftmax" stroke="#FFFFFF" fill="#00BFFF" id="img-04c4f435-217">
+            <use xlink:href="#img-04c4f435-218" x="29.92" y="36.51" id="img-04c4f435-219"/>
+          </g>
+          <g class="color_ToepSoftmax" stroke="#FFFFFF" fill="#C6C6C6" id="img-04c4f435-220">
+            <use xlink:href="#img-04c4f435-221" x="28.37" y="25.68" id="img-04c4f435-222"/>
+          </g>
+          <g class="color_CircReLU" stroke="#FFFFFF" fill="#FF6765" id="img-04c4f435-223">
+            <use xlink:href="#img-04c4f435-224" x="28.37" y="35.94" id="img-04c4f435-225"/>
+          </g>
+          <g class="color_GenieAidedMMSE" stroke="#FFFFFF" fill="#BEA9FF" id="img-04c4f435-226">
+            <use xlink:href="#img-04c4f435-227" x="28.37" y="41.86" id="img-04c4f435-228"/>
+          </g>
+          <g class="color_ToepReLU" stroke="#FFFFFF" fill="#00B78D" id="img-04c4f435-229">
+            <use xlink:href="#img-04c4f435-230" x="28.37" y="32.07" id="img-04c4f435-231"/>
+          </g>
+          <g class="color_IdSoftmax" stroke="#FFFFFF" fill="#FF6DAE" id="img-04c4f435-232">
+            <use xlink:href="#img-04c4f435-233" x="28.37" y="35.45" id="img-04c4f435-234"/>
+          </g>
+          <g class="color_IdReLU" stroke="#FFFFFF" fill="#D4CA3A" id="img-04c4f435-235">
+            <use xlink:href="#img-04c4f435-236" x="28.37" y="36.38" id="img-04c4f435-237"/>
+          </g>
+          <g class="color_CircSoftmax" stroke="#FFFFFF" fill="#00BFFF" id="img-04c4f435-238">
+            <use xlink:href="#img-04c4f435-239" x="28.37" y="38.18" id="img-04c4f435-240"/>
+          </g>
+          <g class="color_ToepSoftmax" stroke="#FFFFFF" fill="#C6C6C6" id="img-04c4f435-241">
+            <use xlink:href="#img-04c4f435-242" x="26.82" y="29.03" id="img-04c4f435-243"/>
+          </g>
+          <g class="color_CircReLU" stroke="#FFFFFF" fill="#FF6765" id="img-04c4f435-244">
+            <use xlink:href="#img-04c4f435-245" x="26.82" y="38.18" id="img-04c4f435-246"/>
+          </g>
+          <g class="color_GenieAidedMMSE" stroke="#FFFFFF" fill="#BEA9FF" id="img-04c4f435-247">
+            <use xlink:href="#img-04c4f435-248" x="26.82" y="41.86" id="img-04c4f435-249"/>
+          </g>
+          <g class="color_ToepReLU" stroke="#FFFFFF" fill="#00B78D" id="img-04c4f435-250">
+            <use xlink:href="#img-04c4f435-251" x="26.82" y="35.7" id="img-04c4f435-252"/>
+          </g>
+          <g class="color_IdSoftmax" stroke="#FFFFFF" fill="#FF6DAE" id="img-04c4f435-253">
+            <use xlink:href="#img-04c4f435-254" x="26.82" y="39.04" id="img-04c4f435-255"/>
+          </g>
+          <g class="color_IdReLU" stroke="#FFFFFF" fill="#D4CA3A" id="img-04c4f435-256">
+            <use xlink:href="#img-04c4f435-257" x="26.82" y="40.35" id="img-04c4f435-258"/>
+          </g>
+          <g class="color_CircSoftmax" stroke="#FFFFFF" fill="#00BFFF" id="img-04c4f435-259">
+            <use xlink:href="#img-04c4f435-260" x="26.82" y="38.26" id="img-04c4f435-261"/>
+          </g>
+          <g class="color_ToepSoftmax" stroke="#FFFFFF" fill="#C6C6C6" id="img-04c4f435-262">
+            <use xlink:href="#img-04c4f435-263" x="25.27" y="35.33" id="img-04c4f435-264"/>
+          </g>
+          <g class="color_CircReLU" stroke="#FFFFFF" fill="#FF6765" id="img-04c4f435-265">
+            <use xlink:href="#img-04c4f435-266" x="25.27" y="38.88" id="img-04c4f435-267"/>
+          </g>
+          <g class="color_GenieAidedMMSE" stroke="#FFFFFF" fill="#BEA9FF" id="img-04c4f435-268">
+            <use xlink:href="#img-04c4f435-269" x="25.27" y="41.86" id="img-04c4f435-270"/>
+          </g>
+          <g class="color_ToepReLU" stroke="#FFFFFF" fill="#00B78D" id="img-04c4f435-271">
+            <use xlink:href="#img-04c4f435-272" x="25.27" y="37.17" id="img-04c4f435-273"/>
+          </g>
+          <g class="color_IdSoftmax" stroke="#FFFFFF" fill="#FF6DAE" id="img-04c4f435-274">
+            <use xlink:href="#img-04c4f435-275" x="25.27" y="41.97" id="img-04c4f435-276"/>
+          </g>
+          <g class="color_IdReLU" stroke="#FFFFFF" fill="#D4CA3A" id="img-04c4f435-277">
+            <use xlink:href="#img-04c4f435-278" x="25.27" y="41.48" id="img-04c4f435-279"/>
+          </g>
+          <g class="color_CircSoftmax" stroke="#FFFFFF" fill="#00BFFF" id="img-04c4f435-280">
+            <use xlink:href="#img-04c4f435-281" x="25.27" y="38.28" id="img-04c4f435-282"/>
+          </g>
+          <g class="color_ToepSoftmax" stroke="#FFFFFF" fill="#C6C6C6" id="img-04c4f435-283">
+            <use xlink:href="#img-04c4f435-284" x="23.72" y="32.89" id="img-04c4f435-285"/>
+          </g>
+          <g class="color_CircReLU" stroke="#FFFFFF" fill="#FF6765" id="img-04c4f435-286">
+            <use xlink:href="#img-04c4f435-287" x="23.72" y="37.4" id="img-04c4f435-288"/>
+          </g>
+          <g class="color_GenieAidedMMSE" stroke="#FFFFFF" fill="#BEA9FF" id="img-04c4f435-289">
+            <use xlink:href="#img-04c4f435-290" x="23.72" y="41.86" id="img-04c4f435-291"/>
+          </g>
+          <g class="color_ToepReLU" stroke="#FFFFFF" fill="#00B78D" id="img-04c4f435-292">
+            <use xlink:href="#img-04c4f435-293" x="23.72" y="36.48" id="img-04c4f435-294"/>
+          </g>
+          <g class="color_IdSoftmax" stroke="#FFFFFF" fill="#FF6DAE" id="img-04c4f435-295">
+            <use xlink:href="#img-04c4f435-296" x="23.72" y="36.37" id="img-04c4f435-297"/>
+          </g>
+          <g class="color_IdReLU" stroke="#FFFFFF" fill="#D4CA3A" id="img-04c4f435-298">
+            <use xlink:href="#img-04c4f435-299" x="23.72" y="39.95" id="img-04c4f435-300"/>
+          </g>
+          <g class="color_CircSoftmax" stroke="#FFFFFF" fill="#00BFFF" id="img-04c4f435-301">
+            <use xlink:href="#img-04c4f435-302" x="23.72" y="36.71" id="img-04c4f435-303"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</g>
+  <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="img-04c4f435-304">
+    <text x="19.17" y="46.74" text-anchor="end" dy="0.35em" id="img-04c4f435-305">0.06</text>
+    <text x="19.17" y="36.8" text-anchor="end" dy="0.35em" id="img-04c4f435-306">0.08</text>
+    <text x="19.17" y="26.87" text-anchor="end" dy="0.35em" id="img-04c4f435-307">0.10</text>
+    <text x="19.17" y="16.93" text-anchor="end" dy="0.35em" id="img-04c4f435-308">0.12</text>
+    <text x="19.17" y="7" text-anchor="end" dy="0.35em" id="img-04c4f435-309">0.14</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="img-04c4f435-310">
+    <text x="8.41" y="24.87" text-anchor="middle" dy="0.35em" transform="rotate(-90, 8.41, 26.87)" id="img-04c4f435-311">MSE</text>
+  </g>
+</g>
+<defs>
+  <clipPath id="img-04c4f435-23">
+  <path d="M20.17,5 L 42.77 5 42.77 48.74 20.17 48.74" />
+</clipPath>
+  <g id="img-04c4f435-53">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-312"/>
+  </g>
+  <g id="img-04c4f435-56">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-313"/>
+  </g>
+  <g id="img-04c4f435-59">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-314"/>
+  </g>
+  <g id="img-04c4f435-62">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-315"/>
+  </g>
+  <g id="img-04c4f435-65">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-316"/>
+  </g>
+  <g id="img-04c4f435-68">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-317"/>
+  </g>
+  <g id="img-04c4f435-71">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-318"/>
+  </g>
+  <g id="img-04c4f435-74">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-319"/>
+  </g>
+  <g id="img-04c4f435-77">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-320"/>
+  </g>
+  <g id="img-04c4f435-80">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-321"/>
+  </g>
+  <g id="img-04c4f435-83">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-322"/>
+  </g>
+  <g id="img-04c4f435-86">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-323"/>
+  </g>
+  <g id="img-04c4f435-89">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-324"/>
+  </g>
+  <g id="img-04c4f435-92">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-325"/>
+  </g>
+  <g id="img-04c4f435-95">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-326"/>
+  </g>
+  <g id="img-04c4f435-98">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-327"/>
+  </g>
+  <g id="img-04c4f435-101">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-328"/>
+  </g>
+  <g id="img-04c4f435-104">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-329"/>
+  </g>
+  <g id="img-04c4f435-107">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-330"/>
+  </g>
+  <g id="img-04c4f435-110">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-331"/>
+  </g>
+  <g id="img-04c4f435-113">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-332"/>
+  </g>
+  <g id="img-04c4f435-116">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-333"/>
+  </g>
+  <g id="img-04c4f435-119">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-334"/>
+  </g>
+  <g id="img-04c4f435-122">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-335"/>
+  </g>
+  <g id="img-04c4f435-125">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-336"/>
+  </g>
+  <g id="img-04c4f435-128">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-337"/>
+  </g>
+  <g id="img-04c4f435-131">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-338"/>
+  </g>
+  <g id="img-04c4f435-134">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-339"/>
+  </g>
+  <g id="img-04c4f435-137">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-340"/>
+  </g>
+  <g id="img-04c4f435-140">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-341"/>
+  </g>
+  <g id="img-04c4f435-143">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-342"/>
+  </g>
+  <g id="img-04c4f435-146">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-343"/>
+  </g>
+  <g id="img-04c4f435-149">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-344"/>
+  </g>
+  <g id="img-04c4f435-152">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-345"/>
+  </g>
+  <g id="img-04c4f435-155">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-346"/>
+  </g>
+  <g id="img-04c4f435-158">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-347"/>
+  </g>
+  <g id="img-04c4f435-161">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-348"/>
+  </g>
+  <g id="img-04c4f435-164">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-349"/>
+  </g>
+  <g id="img-04c4f435-167">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-350"/>
+  </g>
+  <g id="img-04c4f435-170">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-351"/>
+  </g>
+  <g id="img-04c4f435-173">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-352"/>
+  </g>
+  <g id="img-04c4f435-176">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-353"/>
+  </g>
+  <g id="img-04c4f435-179">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-354"/>
+  </g>
+  <g id="img-04c4f435-182">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-355"/>
+  </g>
+  <g id="img-04c4f435-185">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-356"/>
+  </g>
+  <g id="img-04c4f435-188">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-357"/>
+  </g>
+  <g id="img-04c4f435-191">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-358"/>
+  </g>
+  <g id="img-04c4f435-194">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-359"/>
+  </g>
+  <g id="img-04c4f435-197">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-360"/>
+  </g>
+  <g id="img-04c4f435-200">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-361"/>
+  </g>
+  <g id="img-04c4f435-203">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-362"/>
+  </g>
+  <g id="img-04c4f435-206">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-363"/>
+  </g>
+  <g id="img-04c4f435-209">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-364"/>
+  </g>
+  <g id="img-04c4f435-212">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-365"/>
+  </g>
+  <g id="img-04c4f435-215">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-366"/>
+  </g>
+  <g id="img-04c4f435-218">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-367"/>
+  </g>
+  <g id="img-04c4f435-221">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-368"/>
+  </g>
+  <g id="img-04c4f435-224">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-369"/>
+  </g>
+  <g id="img-04c4f435-227">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-370"/>
+  </g>
+  <g id="img-04c4f435-230">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-371"/>
+  </g>
+  <g id="img-04c4f435-233">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-372"/>
+  </g>
+  <g id="img-04c4f435-236">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-373"/>
+  </g>
+  <g id="img-04c4f435-239">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-374"/>
+  </g>
+  <g id="img-04c4f435-242">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-375"/>
+  </g>
+  <g id="img-04c4f435-245">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-376"/>
+  </g>
+  <g id="img-04c4f435-248">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-377"/>
+  </g>
+  <g id="img-04c4f435-251">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-378"/>
+  </g>
+  <g id="img-04c4f435-254">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-379"/>
+  </g>
+  <g id="img-04c4f435-257">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-380"/>
+  </g>
+  <g id="img-04c4f435-260">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-381"/>
+  </g>
+  <g id="img-04c4f435-263">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-382"/>
+  </g>
+  <g id="img-04c4f435-266">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-383"/>
+  </g>
+  <g id="img-04c4f435-269">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-384"/>
+  </g>
+  <g id="img-04c4f435-272">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-385"/>
+  </g>
+  <g id="img-04c4f435-275">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-386"/>
+  </g>
+  <g id="img-04c4f435-278">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-387"/>
+  </g>
+  <g id="img-04c4f435-281">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-388"/>
+  </g>
+  <g id="img-04c4f435-284">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-389"/>
+  </g>
+  <g id="img-04c4f435-287">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-390"/>
+  </g>
+  <g id="img-04c4f435-290">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-391"/>
+  </g>
+  <g id="img-04c4f435-293">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-392"/>
+  </g>
+  <g id="img-04c4f435-296">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-393"/>
+  </g>
+  <g id="img-04c4f435-299">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-394"/>
+  </g>
+  <g id="img-04c4f435-302">
+    <circle cx="0" cy="0" r="0.9" id="img-04c4f435-395"/>
+  </g>
+</defs>
+</svg>

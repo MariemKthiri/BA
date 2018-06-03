@@ -1,0 +1,94 @@
+%
+% tumcolor.sty
+%
+% This style file define official TUM colors
+%
+
+%----------------------------------------------------------------------
+% Identify package
+%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tumcolor}%
+    [2013/06/25 v0.06.1 %
+    tumcolor.sty Stand-alone color definitions of official TUM colors]
+
+%----------------------------------------------------------------------
+% Packages and options
+%
+\RequirePackage{xcolor}
+\RequirePackage{kvoptions}%
+\SetupKeyvalOptions{family=tumcolor,prefix=tumcolor@}%
+\DeclareBoolOption{print}%
+\ProcessKeyvalOptions*\relax
+
+%----------------------------------------------------------------------
+% Color definitions
+%
+\iftumcolor@print
+    % TUM Black/White colors
+    \definecolor{TUMBlack}           {cmyk}{0.00,0.00,0.00,1.00}  % Black
+    \definecolor{TUMWhite}           {cmyk}{0.00,0.00,0.00,0.00}  % White
+    % TUMBlue color (logo)
+    \definecolor{TUMBlue}            {cmyk}{1.00,0.43,0.00,0.00}  % Pantone 300 C
+    % Additional TUM blue colors
+    \definecolor{TUMDarkBlue}        {cmyk}{1.00,0.57,0.12,0.70}  % Pantone 540 C
+    \definecolor{TUMDarkerBlue}      {cmyk}{1.00,0.54,0.04,0.19}  % Pantone 301 C
+    \definecolor{TUMMediumBlue}      {cmyk}{0.90,0.48,0.00,0.00}  % Pantone 285 C
+    \definecolor{TUMLighterBlue}     {cmyk}{0.65,0.19,0.01,0.04}  % Pantone 542 C
+    \definecolor{TUMLightBlue}       {cmyk}{0.42,0.09,0.00,0.00}  % Pantone 283 C
+    % Additional TUM gray colors
+    \definecolor{TUMDarkGray}        {cmyk}{0.00,0.00,0.00,0.80}  % DarkGray   80% Black
+    \definecolor{TUMMediumGray}      {cmyk}{0.00,0.00,0.00,0.50}  % MediumGray 50% Black
+    \definecolor{TUMLightGray}       {cmyk}{0.00,0.00,0.00,0.20}  % LightGray  20% Black
+    % TUM Highlight colors
+    \definecolor{TUMGreen}           {cmyk}{0.35,0.00,1.00,0.20}  % Pantone 383 C
+    \definecolor{TUMOrange}          {cmyk}{0.00,0.65,0.95,0.00}  % Pantone 158 C
+    \definecolor{TUMIvory}           {cmyk}{0.03,0.04,0.14,0.08}  % Pantone 7527 C
+\else
+    % TUM Black/White colors
+    \definecolor{TUMBlack}           {rgb} {0.000,0.000,0.000}    % Black
+    \definecolor{TUMWhite}           {rgb} {1.000,1.000,1.000}    % White
+    % TUMBlue color (logo)
+    \definecolor{TUMBlue}            {rgb} {0.000,0.396,0.741}    % Pantone 300 C
+    % Additional TUM blue colors
+    \definecolor{TUMDarkBlue}        {rgb} {0.000,0.200,0.349}    % Pantone 540 C
+    \definecolor{TUMDarkerBlue}      {rgb} {0.000,0.322,0.576}    % Pantone 301 C
+    \definecolor{TUMMediumBlue}      {rgb} {0.000,0.451,0.812}    % Pantone 285 C
+    \definecolor{TUMLighterBlue}     {rgb} {0.392,0.627,0.784}    % Pantone 542 C
+    \definecolor{TUMLightBlue}       {rgb} {0.596,0.776,0.918}    % Pantone 283 C
+    % Additional TUM gray colors
+    \definecolor{TUMDarkGray}        {rgb} {0.345,0.345,0.353}    % DarkGray   80% Black
+    \definecolor{TUMMediumGray}      {rgb} {0.612,0.616,0.624}    % MediumGray 50% Black
+    \definecolor{TUMLightGray}       {rgb} {0.851,0.855,0.859}    % LightGray  20% Black
+    % TUM Highlight colors
+    \definecolor{TUMGreen}           {rgb} {0.635,0.678,0.000}    % Pantone 383 C
+    \definecolor{TUMOrange}          {rgb} {0.890,0.447,0.133}    % Pantone 158 C
+    \definecolor{TUMIvory}           {rgb} {0.855,0.843,0.796}    % Pantone 7527 C
+\fi
+    % TUM Presentation colors
+    \definecolor{TUMBeamerYellow}    {rgb} {1.000,0.706,0.000}    % RGB 255,180,000
+    \definecolor{TUMBeamerOrange}    {rgb} {1.000,0.502,0.000}    % RGB 255,128,000
+    \definecolor{TUMBeamerRed}       {rgb} {0.898,0.204,0.094}    % RGB 229,052,024
+    \definecolor{TUMBeamerDarkRed}   {rgb} {0.792,0.129,0.247}    % RGB 202,033,063
+    \definecolor{TUMBeamerBlue}      {rgb} {0.000,0.600,1.000}    % RGB 000,153,255
+    \definecolor{TUMBeamerLightBlue} {rgb} {0.255,0.745,1.000}    % RGB 065,190,255
+    \definecolor{TUMBeamerGreen}     {rgb} {0.569,0.675,0.420}    % RGB 145,172,107
+    \definecolor{TUMBeamerLightGreen}{rgb} {0.710,0.792,0.510}    % RGB 181,202,130
+
+%----------------------------------------------------------------------
+% Color aliases
+%
+% TODO: define aliases maybe to replace dvipsnames colors by appropriate TUM colors
+
+
+%----------------------------------------------------------------------
+% Color aliases
+%
+\iftumcolor@print
+    \AtBeginDocument{\selectcolormodel{cmyk}}
+\else
+    \AtBeginDocument{\selectcolormodel{rgb}}
+\fi
+
+\endinput
+

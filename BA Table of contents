@@ -1,0 +1,62 @@
+*Titelseite
+Auf der Titelseite sollte Folgendes genannt werden:
+
+    Art der Arbeit (z.B. Diplomarbeit, ...)
+    Titel
+    Name der Universität, Institut und Professor
+    Der Name des Autors,
+    die Matrikulationsnummer
+    die Adresse und
+    die Email Adresse.
+    Name des Betreuers
+    Beginn der Arbeit
+    Ende der Arbeit (gewöhnlich der Tag der Abschlusspräsentation)
+
+*Abstract
+Problemstellung der Arbeit und Lösung. Darf nicht länger als eine halbe Seite sein und ist in Englischer Sprache.
+
+*Inhaltsverzeichnis
+
+*Einleitung
+Die Einleitung sollte das Forschungsgebiet erläutern und genauer erklären, wovon die Arbeit handelt. Am Ende wird eine kurze Übersicht über die Ausarbeitung gegeben.
+
+*Hauptteil
+Im Hauptteil sollte der aktuelle Stand der Forschung ("state of the art") basierend auf Referenzen zu aktueller Literatur diskutiert werden. Anschließend werden Ergebnisse der eigenenen Arbeit präsentiert. Zwischenschritte, die für die finalen Ergebnisse wichtig sind, können ebenfalls erläutert werden. Der Hauptteil sollte in mehrere Kapitel aufgeteilt werden, sodass ein roter Faden erkennbar ist und der Zweck der Arbeit aufgezeigt wird.
+Der Hauptteil sollte zusammen mit der Einleitung eine umfassende Erläuterung der Arbeit bilden, ohne dass weitere Literatur für das vollständige Verständnis notwendig ist.
+    ** Literatur: 
+	1) compressive sensnig
+	2) OMP
+	3) ML: net structure
+    ** Experiments:
+	1) sensing matrix is identity matrix: denoising
+	2) sensing matrix is unitary
+	3) general case
+
+*Schlussfolgerung
+Die wichtigsten Aspekte und Ergebnisse der Arbeit sollen in der Schlussfolgerung zusammengefasst werden. Wesentliche Erfahrungen können ebenfalls beschrieben werden. Der Autor kann am Ende seine eigene Sicht über zukünftige Entwicklungen im Forschungsgebiet der Arbeit erläutern.
+
+*Anhang (falls notwendig)
+*Abbildungsverzeichnis
+*Tabellenverzeichnis
+*Glossar (optional)
+*Symbolverzeichnis (optional)
+*Abkürzungsverzeichnis
+*Literaturverzeichnis
+Eine vollständige Liste jeglicher Literatur- und Internetreferenzen. Die Einträge müssen vollständig und konsistent sein:
+Autor, vollständiger Titel, wie (bzw. wo) veröffentlicht (Name das Magazins, Konferenz, Url, etc.), Datum der Veröffentlichung
+
+Referenzen werden mit der Abkürzung des Namens des Autors, gefolgt vom Veröffentlichungsjahr gekennzeichnet (LaTeX Stil "alpha").
+
+Artikel in einem Magazin:
+[GLL90] Griswold, J. S.; Lightle, T. L.; Lovelady, J. G.: Hurricane Hugo: Effect On State Government Communications. IEEE Communications Magazine, Vol. 28, Nr. 6, S. 12-17, 1990.
+
+Ein Buch:
+[EV97] Eberspächer, J.; Vögel, H.-J.: GSM - Global System for Mobile Communication. Vermittlung, Dienste und Protokolle in digitalen Mobilfunknetzen. Teubner, Stuttgart, 1997.
+
+Eine URL:
+[Arn99] Arnaud, B. St.: Gigabit Internet to every Canadian Home by 2005. www.canet2.net/archeng/home.html, 1999.
+
+Innerhalb der Ausarbeitung wird auf Referenzen wie folgt verwiesen:
+"..., as shown in [EV97], ..." or
+" ... there are several solutions [Arn99,GLL90] ..."
+Index (optional)

@@ -1,0 +1,14 @@
+\contentsline {section}{\numberline {I}Abstract}{1}
+\contentsline {section}{\numberline {II}Table of contents}{1}
+\contentsline {section}{\numberline {III}Introduction}{1}
+\contentsline {section}{\numberline {IV}Literatur}{1}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Compressive sensing}{1}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}OMP}{1}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}}Machine learning: Network structure}{1}
+\contentsline {section}{\numberline {V}Experiments and Results}{1}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-A}}Convolutional Neural Network}{1}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-A}1}Sensing matrix is identity: denoising}{1}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-A}2}Sensing matrix is unitary}{1}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-A}3}Sensing matrix is general: General case}{1}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-B}}Multi-layer Perceptron}{1}
+\contentsline {section}{\numberline {VI}Conclusion}{1}

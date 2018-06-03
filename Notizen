@@ -1,0 +1,78 @@
+** y = A*Q*x + e = A*h + e
+A : m*N Measurement Matrix
+Q : N*N Sparsifying Matrix
+h : k-sparse vector
+e : noise
+
+** Netze:
+1) 2) Im code: Netz mit 2 Eingangs/Ausgangstransformationen (Circulant & Toeplitz)
+3) Eingangs/Ausgangstransformation = Identität
+4) Allgemeine A⁽¹⁾ und A⁽²⁾
+
+** Problemstellungen:
+1) y = x + e (x k-sparse)
+2) y = U*x + e (U unitär,z.B. Haar)
+3) y = Q*x + e (Q allgemein,z.B. i.i.d Gauss)
+
+** Zum Vergleich: OMP auf y bzw. U⁻¹*y bzw. Q⁻¹*y
+findet optimale Lösung (einfacher sort)
+
+** Plots der ursprünglichen Kanalvektoren:
+MSE:  Am schlimmsten IdSoftmax-IdReLU
+      Bestes Ergebnis ToepReLU
+      Bei CircSoftmax, ToepReLU, CircReLU, ToepSoftmax => deutliche Absenkung der MSE bei zunehmender Anzahl an Antennen
+Rate: deutliche Zunahme der Rate bei zunehmender Anzahl an Antennen bei allen Netzen
+      Gleiches Verhalten mit IdReLU und IdSoftmax
+      Grösste Rate bei ToepReLU
+
+** Fall 1)
+NNs + OMP Vergleich => Überlappung von Kurven =>genie-aided MMSE-Schätzer hinzufügen(max erreichbare Performance) & MSE berechnen nach einer bestimmten Anzahl von Iterationen (lohnt es sich noch den Learning fortzusetzen)
+Anhand von plots, MSE schwingt. Beste Anzah an Iterationen = 5000?
+
+Test mit 32 Antennen: h_1,h_2,..h_N sparse Vektoren & g_1,g_2,..g_N: Schätzung des NNs (sollte auch sparse sein) & wie gross sollte N sein?
+1.Elementweise den Betrag von g_i berechnen und danach die Elemente der Größe nach sortieren, für jedes i = 1, 2, …, N
+2.Mittelwert dieser sortierten Vektoren bilden (das ergibt einen Vektor)
+3.Diesen Mittelwert plotten (also mit 1 bis 32 als x-Achse)
+"folded normal distribution": Definition: "Given a normally distributed random variable X with mean μ and variance σ2, the random variable Y = |X| has a folded normal distribution."
+Skalierungsfaktor in Plots wegen abs/abs2
+PS: wenn man nur 32 Antennen braucht trainiert man die NNs nur bis 32 Antennen
+
+Genie-aided MMSE-Schätzer: h_i = n_i*b_i, b bernoulliverteilt & n normaverteilt
+Verteilungsfunktion: Fh = (1-p)*Fn + p*dirac 
+cov(XiY,XiY) = var(XiY) = var(Xi)var(Y)+var(Xi)𝔼[Y]²+var(Y)𝔼[Xi]²
+In unserem Fall: cov(ni.b,ni.b) = sigma².p.(1-p)+p.(1-p).p²+p.(1-p).0
+				= p.(1-p).(sigma²+p²)
+oder statt C_delta -> diag(rho für i in supp(h)) mit rho = 10^(0.1*snr)
+siehe Maximum likelihood detection and estimation of Bernoulli - Gaussian processes
+
+Problem mit OMP: hohe MSE -> schätzt der OMP den Support/die Einträge falsch? 
+OMP schätzt den Support falsch -> Rauschen kleiner machen/ y sortieren
+OMP in den Test hinzufügen -> grosse Einträge -> hohe MSE
+Bei SNR = 10dB z.B h_i und OMP Schätzungen sind ähnlich (um 1.5), aber die NN Schätzungen sind zu klein (kleiner als 0.2)-> Bei SNR = 0dB: h_max ~= 1.5, g_max(id) ~= 0.5, g_max(OMP) ~= 3.5.
+IdReLU und IdSoftmax haben bessere Ergebnisse als die anderen NNs.
+SNR = 0dB : Richtig geschätzter Support (OMP, 32 Antennen, 1000 Samples) = 0.2789
+SNR = 10dB: Richtig geschätzter Support (OMP, 50 Samples) = 0.47
+SNR = 20dB: Richtig geschätzter Support (OMP, 20 Samples) = 0.93
+In OMP Algorithmus komplexwertige Zahlen berücksichtigen -> Innerer Produkt:
+product = abs(transpose(conj(phi[:,k]))*r_t)/norm(phi[:,k])
+
+Schätzen die NNs den richtigen Support?
+Ja alle NNs haben fast die gleiche Rate (79% richtig geschätzt bei SNR = 0)
+
+Learningkurven: wie viele Iterationen braucht man für das Learning (z.B. SNR=10dB):
+Für i Antennen, MSE plotten je 500 Iterationen:
+für 8 Antennen brauchen IdReLU und IdSoftmax mehr Iterationen als den anderen NNs.
+Ab 16 Antennen sind 3000 Iterationen für alle NNs völlig ausreichend.
+
+Fig. 3 zeigt den OMP zwischen CircReLU und IdSoftmax und in Fig. 4 ist die Rate von OMP aber deutlich schlechter als die von CircReLU und IdSoftmax ???
+
+Sparsity level m variieren, Anteil an von Null unterschiedlichen Einträgen (durschnittlich m Einträge ungleich Null)
+
+Beim Trainieren zufällig generierte Vektoren, bei der Auswertung gleiche zufällige Vektoren => leider für mich schlechte Ergebnisse:
+MSE steigt mit Anzahl an Iterationen: siehe MSE_($i)_antennas.svg
+MSE steigt für manche NNs und fäalt für die anderen mit Anzahl an Antennen
+
+
+
+
+ 

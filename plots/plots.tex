@@ -1,0 +1,1314 @@
+\documentclass[a4paper,conference]{IEEEtran}
+
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{svg}
+
+\usepackage{tumcolor}
+
+\usepackage{tikz} 
+\usetikzlibrary{calc}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{float}
+
+\pgfplotsset{
+    discard if not/.style 2 args={
+        x filter/.code={
+            \edef\tempa{\thisrow{#1}}
+            \edef\tempb{#2}
+            \ifx\tempa\tempb
+            \else
+                \def\pgfmathresult{inf}
+            \fi
+        }
+    }
+}
+
+\tikzset{CircSoftmax/.style={mark options={solid},color=TUMLightBlue, line width=1.0pt, mark=diamond}}%
+\tikzset{IdReLU/.style={mark options={solid},color=TUMOrange, line width=1.0pt, mark=o}}%
+\tikzset{IdSoftmax/.style={mark options={solid},color=TUMDarkerBlue, line width=1.0pt, mark=square}}%
+\tikzset{ToepReLU/.style={mark options={solid},color=TUMBlack,line width=1.0pt}}%
+\tikzset{CircReLU/.style={mark options={solid},color=TUMGreen,line width=1.0pt}}%
+\tikzset{ToepSoftmax/.style={mark options={solid},color=TUMBeamerYellow,line width=1.0pt}}%
+
+\tikzset{OMP/.style={mark options={solid},color=TUMBeamerRed,line width=1.0pt}}%
+
+\tikzset{NNInput/.style={mark options={solid},color=TUMMediumBlue,line width=1.0pt}}%
+
+\newlength{\plotheight}
+\setlength{\plotheight}{0.8\columnwidth}
+
+\begin{document}
+\section{Sparse Recovery}
+\subsection{Sparsity = 4}
+\textbf{Sparsity = 4, SNR = 0dB:}
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%[trim axis left, trim axis right]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 8, xmax = 32,
+    %ymin = 0, ymax = 0.5,
+    ylabel={\small MSE},
+    xlabel={\small nAntennas},
+    title={},
+    legend entries={
+        \footnotesize CircSoftmax,
+        \footnotesize ToepSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_0_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_0_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_0_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_0_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_0_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_0_dB.csv};
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_0_dB.csv};    
+
+\end{axis}
+\end{tikzpicture}
+\caption{
+    MSE with Sparse Recovery SNR = 0dB}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%[trim axis left, trim axis right]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 8, xmax = 32,
+    ylabel={\small rate},
+    xlabel={\small nAntennas},
+    title={},
+    legend entries={
+        \footnotesize CircSoftmax,
+        \footnotesize ToepSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_0_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_0_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_0_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_0_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_0_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_0_dB.csv};
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_0_dB.csv};
+\end{axis}
+\end{tikzpicture}
+\caption{
+    Rates with Sparse Recovery SNR = 0dB}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Sparsity = 4, SNR = 10dB:}
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%[trim axis left, trim axis right]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 8, xmax = 32,
+    %ymin = 0, ymax = 0.5,
+    ylabel={\small MSE},
+    xlabel={\small nAntennas},
+    title={},
+    legend entries={
+        \footnotesize CircSoftmax,
+        \footnotesize ToepSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_10_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_10_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_10_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_10_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_10_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_10_dB.csv};
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_10_dB.csv};    
+
+\end{axis}
+\end{tikzpicture}
+\caption{
+    MSE with Sparse Recovery SNR = 10dB}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%[trim axis left, trim axis right]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 8, xmax = 32,
+    ylabel={\small rate},
+    xlabel={\small nAntennas},
+    title={},
+    legend entries={
+        \footnotesize CircSoftmax,
+        \footnotesize ToepSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_10_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_10_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_10_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_10_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_10_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_10_dB.csv};
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_10_dB.csv};
+\end{axis}
+\end{tikzpicture}
+\caption{
+    Rates with Sparse Recovery SNR = 10dB}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Sparsity = 4, SNR = 20dB:}
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%[trim axis left, trim axis right]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 8, xmax = 32,
+    %ymin = 0, ymax = 0.5,
+    ylabel={\small MSE},
+    xlabel={\small nAntennas},
+    title={},
+    legend entries={
+        \footnotesize CircSoftmax,
+        \footnotesize ToepSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_20_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_20_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_20_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_20_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_20_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_20_dB.csv};
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_20_dB.csv};    
+
+\end{axis}
+\end{tikzpicture}
+\caption{
+    MSE with Sparse Recovery SNR = 20dB}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%[trim axis left, trim axis right]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 8, xmax = 32,
+    ylabel={\small rate},
+    xlabel={\small nAntennas},
+    title={},
+    legend entries={
+        \footnotesize CircSoftmax,
+        \footnotesize ToepSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_20_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_20_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_20_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_20_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_20_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_20_dB.csv};
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_20_dB.csv};
+\end{axis}
+\end{tikzpicture}
+\caption{
+    Rates with Sparse Recovery SNR = 20dB}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\subsection{Sparsity = 5}
+\textbf{Sparsity = 5, SNR = 0dB}
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%[trim axis left, trim axis right]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 8, xmax = 32,
+    %ymin = 0, ymax = 0.5, 
+    ylabel={\small MSE},
+    xlabel={\small nAntennas},
+    title={},
+    legend entries={
+        \footnotesize CircSoftmax,
+        \footnotesize ToepSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_0_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_0_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_0_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_0_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_0_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_0_dB.csv};
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_0_dB.csv};    
+
+\end{axis}
+\end{tikzpicture}
+\caption{
+    MSE with Sparse Recovery SNR = 0dB}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%[trim axis left, trim axis right]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 8, xmax = 32,
+    ylabel={\small rate},
+    xlabel={\small nAntennas},
+    title={},
+    legend entries={
+        \footnotesize CircSoftmax,
+        \footnotesize ToepSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_0_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_0_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_0_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_0_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_0_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_0_dB.csv};
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_0_dB.csv};
+\end{axis}
+\end{tikzpicture}
+\caption{
+    Rates with Sparse Recovery SNR = 0dB}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Sparsity = 5, SNR = 10dB}
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%[trim axis left, trim axis right]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 8, xmax = 32,
+    %ymin = 0, ymax = 0.5, 
+    ylabel={\small MSE},
+    xlabel={\small nAntennas},
+    title={},
+    legend entries={
+        \footnotesize CircSoftmax,
+        \footnotesize ToepSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_10_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_10_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_10_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_10_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_10_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_10_dB.csv};
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_10_dB.csv};    
+
+\end{axis}
+\end{tikzpicture}
+\caption{
+    MSE with Sparse Recovery SNR = 10dB}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%[trim axis left, trim axis right]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 8, xmax = 32,
+    ylabel={\small rate},
+    xlabel={\small nAntennas},
+    title={},
+    legend entries={
+        \footnotesize CircSoftmax,
+        \footnotesize ToepSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_10_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_10_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_10_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_10_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_10_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_10_dB.csv};
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_5_snr_10_dB.csv};
+\end{axis}
+\end{tikzpicture}
+\caption{
+    Rates with Sparse Recovery SNR = 10dB}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\subsection{Sparsity = 6}
+\textbf{Sparsity = 6, SNR = 0dB}
+\clearpage
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%[trim axis left, trim axis right]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 8, xmax = 32,
+    ylabel={\small MSE},
+    xlabel={\small nAntennas},
+    title={},
+    legend entries={
+        \footnotesize CircSoftmax,
+        \footnotesize ToepSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+ {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_0_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_0_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_0_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_0_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_0_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_0_dB.csv};
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_0_dB.csv};    
+
+\end{axis}
+\end{tikzpicture}
+\caption{
+    MSE with Sparse Recovery SNR = 0dB}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%[trim axis left, trim axis right]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 8, xmax = 32,
+    ylabel={\small rate},
+    xlabel={\small nAntennas},
+    title={},
+    legend entries={
+        \footnotesize CircSoftmax,
+        \footnotesize ToepSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_0_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_0_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_0_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_0_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_0_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_0_dB.csv};
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_0_dB.csv};
+\end{axis}
+\end{tikzpicture}
+\caption{
+    Rates with Sparse Recovery SNR = 0dB}
+\end{figure}
+
+\textbf{Sparsity = 6, SNR = 20dB}
+\clearpage
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%[trim axis left, trim axis right]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 8, xmax = 32,
+    ylabel={\small MSE},
+    xlabel={\small nAntennas},
+    title={},
+    legend entries={
+        \footnotesize CircSoftmax,
+        \footnotesize ToepSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_20_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_20_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_20_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_20_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_20_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_20_dB.csv};
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_20_dB.csv};    
+
+\end{axis}
+\end{tikzpicture}
+\caption{
+    MSE with Sparse Recovery SNR = 20dB}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%[trim axis left, trim axis right]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 8, xmax = 32,
+    ylabel={\small rate},
+    xlabel={\small nAntennas},
+    title={},
+    legend entries={
+        \footnotesize CircSoftmax,
+        \footnotesize ToepSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_20_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_20_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_20_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_20_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_20_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_20_dB.csv};
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
+    {/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_6_snr_20_dB.csv};
+\end{axis}
+\end{tikzpicture}
+\caption{
+    Rates with Sparse Recovery SNR = 20dB}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+\section{Sparsity Tests}
+\subsection{Sparsity = 4}
+\textbf{Sparsity = 4, SNR = 0/10/20dB}
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%[place/.style={circle,draw=red,fill=red,thick}]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 0, xmax = 32,
+    ylabel={\small Magnitude},
+    xlabel={\small index},
+    title={},
+    legend entries={
+    	\footnotesize $h_i$,
+        \footnotesize CircSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize ToepSoftmax,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[NNInput,discard if not={Algorithm}{NNInput} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_0_dB.csv};
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_0_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_0_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_0_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_0_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_0_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_0_dB.csv};           
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_0_dB.csv}; 
+    
+\end{axis}
+\end{tikzpicture}
+\caption{
+    Comparison of input and output with CNN with 8000 samples and SNR = 0dB }
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%[place/.style={circle,draw=red,fill=red,thick}]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 0, xmax = 32,
+    ylabel={\small Magnitude},
+    xlabel={\small index},
+    title={},
+    legend entries={
+    	\footnotesize $h_i$,
+        \footnotesize CircSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize ToepSoftmax,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[NNInput,discard if not={Algorithm}{NNInput} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_10_dB.csv};
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_10_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_10_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_10_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_10_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_10_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_10_dB.csv};           
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_10_dB.csv}; 
+    
+\end{axis}
+\end{tikzpicture}
+\caption{
+    Comparison of input and output with CNN with 8000 samples and SNR = 10dB }
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%[place/.style={circle,draw=red,fill=red,thick}]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 0, xmax = 32,
+    ylabel={\small Magnitude},
+    xlabel={\small index},
+    title={},
+    legend entries={
+    	\footnotesize $h_i$,
+        \footnotesize CircSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize ToepSoftmax,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[NNInput,discard if not={Algorithm}{NNInput} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_20_dB.csv};
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_20_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_20_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_20_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_20_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_20_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_20_dB.csv};           
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_4_snr_20_dB.csv}; 
+    
+\end{axis}
+\end{tikzpicture}
+\caption{
+    Comparison of input and output with CNN with 8000 samples and SNR = 20dB }
+\end{figure}
+
+\clearpage
+\subsection{Sparsity = 5}
+\textbf{Sparsity = 5, SNR = 0/10/20dB}
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%[place/.style={circle,draw=red,fill=red,thick}]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 0, xmax = 32,
+    ylabel={\small Magnitude},
+    xlabel={\small index},
+    title={},
+    legend entries={
+    	\footnotesize $h_i$,
+        \footnotesize CircSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize ToepSoftmax,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[NNInput,discard if not={Algorithm}{NNInput} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_0_dB.csv};
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_0_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_0_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_0_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_0_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_0_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_0_dB.csv};           
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_0_dB.csv}; 
+    
+\end{axis}
+\end{tikzpicture}
+\caption{
+    Comparison of input and output with CNN and OMP with 8000 samples and SNR = 0dB}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%[place/.style={circle,draw=red,fill=red,thick}]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 0, xmax = 32,
+    ylabel={\small Magnitude},
+    xlabel={\small index},
+    title={},
+    legend entries={
+    	\footnotesize $h_i$,
+        \footnotesize CircSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize ToepSoftmax,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[NNInput,discard if not={Algorithm}{NNInput} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_10_dB.csv};
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_10_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_10_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_10_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_10_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_10_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_10_dB.csv};           
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_10_dB.csv}; 
+    
+\end{axis}
+\end{tikzpicture}
+\caption{
+    Comparison of input and output with CNN and OMP with 8000 samples and SNR = 10dB}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%[place/.style={circle,draw=red,fill=red,thick}]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 0, xmax = 32,
+    ylabel={\small Magnitude},
+    xlabel={\small index},
+    title={},
+    legend entries={
+    	\footnotesize $h_i$,
+        \footnotesize CircSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize ToepSoftmax,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[NNInput,discard if not={Algorithm}{NNInput} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_20_dB.csv};
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_20_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_20_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_20_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_20_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_20_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_20_dB.csv};           
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_5_snr_20_dB.csv}; 
+    
+\end{axis}
+\end{tikzpicture}
+\caption{
+    Comparison of input and output with CNN and OMP with 8000 samples and SNR = 20dB}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+\subsection{Sparsity = 6}
+\textbf{Sparsity = 6, SNR = 0/10/20dB}
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}[place/.style={circle,draw=red,fill=red,thick}]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 0, xmax = 32,
+    ylabel={\small Magnitude},
+    xlabel={\small index},
+    title={},
+    legend entries={
+    	\footnotesize $h_i$,
+        \footnotesize CircSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize ToepSoftmax,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[NNInput,discard if not={Algorithm}{NNInput} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_0_dB.csv};
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_0_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_0_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_0_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_0_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_0_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_0_dB.csv};           
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_0_dB.csv}; 
+    
+\end{axis}
+\end{tikzpicture}
+\caption{
+    Comparison of input and output with CNN and OMP with 8000 samples and SNR = 0dB and sparsity 6}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}[place/.style={circle,draw=red,fill=red,thick}]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 0, xmax = 32,
+    ylabel={\small Magnitude},
+    xlabel={\small index},
+    title={},
+    legend entries={
+    	\footnotesize $h_i$,
+        \footnotesize CircSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize ToepSoftmax,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[NNInput,discard if not={Algorithm}{NNInput} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_10_dB.csv};
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_10_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_10_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_10_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_10_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_10_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_10_dB.csv};           
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_10_dB.csv}; 
+    
+\end{axis}
+\end{tikzpicture}
+\caption{
+    Comparison of input and output with CNN and OMP with 8000 samples and SNR = 10dB and sparsity 6}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}[place/.style={circle,draw=red,fill=red,thick}]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 0, xmax = 32,
+    ylabel={\small Magnitude},
+    xlabel={\small index},
+    title={},
+    legend entries={
+    	\footnotesize $h_i$,
+        \footnotesize CircSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize ToepSoftmax,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[NNInput,discard if not={Algorithm}{NNInput} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_20_dB.csv};
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_20_dB.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_20_dB.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_20_dB.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_20_dB.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_20_dB.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_20_dB.csv};           
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_6_snr_20_dB.csv}; 
+    
+\end{axis}
+\end{tikzpicture}
+\caption{
+    Comparison of input and output with CNN and OMP with 8000 samples and SNR = 20dB and sparsity 6}
+\end{figure}
+%\iffalse
+\clearpage
+\section{Learning Curves}
+\input{LearningCurves}
+%\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\begin{table}[!hb]
+	\centering
+	\caption{Simulation parameters}
+	\begin{tabular}{|l|c|}
+	\hline
+	SNR 					& 0/10/20 \\
+	nLearningBatches 		& 8000 \\
+	nLearningBatchSize 		& 50 \\
+	sparsity 				& 4/5/6 \\
+	nBatches   				& 200 \\
+	nBatchSize 				& 50 \\
+	\hline
+	\end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[!hb]
+	\centering
+	\caption{Testing parameters}
+	\begin{tabular}{|l|c|}
+	\hline
+	Number of samples       & 6000 \\
+	Number of antennas 		& 32 \\
+	\hline
+	\end{tabular}
+\end{table}
+
+
+
+
+\end{document}

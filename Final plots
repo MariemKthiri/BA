@@ -1,0 +1,34 @@
+* CircReLU
+* IdReLU
+* ToepReLU
+have the smallest MSE and the best learning curves for certain values of SNR (10dB, for 20dB IdSoftmax is also as good)
+
+In most of the simulations 4 was chosen as sparsity level to have different sparsity densities with each number of antennas:
+8 => 50%
+16 => 25%
+32 => 12.5% 
+(nearby values have similar results)
+vs
+fix number of antennas (ex:32) and vary sparsity: [2,4,8] equivalent to [6.25%, 12,5%, 25%]
+=> same result: if the sparsity density increases (sparsity increases or number of antennas decreases) MSE increases
+
+** Sparse recovery:
+Fix sparsity level m = 4:
+SNR = 10/20 dB show the difference between the NNs and OMP
+
+** Sparsity tests:
+Fix sparsity level: m = 4. For now only run for 32 antennas. We can try different number of antennas: nAntennas = [8, 16, 32, 40]
+for 32 antennas, by augmenting values of SNR, we obtain more accurate results.
+to make sure the estimations are correct, "support tests" are run to make sure that the NNs estimate the support correctly
+for 8 antennas (50%) we observe the same behaviour with smaller magnitude => the smaller the sparsity the more accurate the results are
+
+** Learning curves:
+For small values of SNR (ex: 0dB) and small sparsity (less than 50%) level there is no actual learning: no falling curves, this can be corrected by decreasing the learning rate but this affects the magnitude of estimated vectors which becomes noticeably smaller. To show this we can opt for the learning curves for 8 and 32 antennas for sparsity level m = 4.
+starting from 10dB we obtain falling learning curves with small MSE values (in range of 10^(-2)).
+
+** SNR effect on MSE:
+Fix sparsity level m = 4 and vary SNR = -10dB..20dB for different number of antennas: 8(50%), 16(25%), 32(12.5%) or 40(10%)
+
+** General approach:
+probability density function = p.delta(xi) + (1-p).N(0,sigma)
+p:probability that xi is zero

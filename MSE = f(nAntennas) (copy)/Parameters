@@ -1,0 +1,9 @@
+nBatches   = 200
+nBatchSize = 50
+m = 6   # m : sparsity level
+snr = 0 # [dB]
+learning_rates_relu    = 1e-5*64./antennas # make learning rates dependend on nAntennas
+learning_rates_softmax = 1e-4*ones(antennas)
+nLayers = 2
+nLearningBatches   = 6000
+nLearningBatchSize = 50

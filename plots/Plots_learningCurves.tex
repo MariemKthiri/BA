@@ -1,0 +1,257 @@
+\documentclass[a4paper,conference]{IEEEtran}
+
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{svg}
+
+\usepackage{tumcolor}
+
+\usepackage{tikz} 
+\usetikzlibrary{calc}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{float}
+
+\pgfplotsset{
+    discard if not/.style 2 args={
+        x filter/.code={
+            \edef\tempa{\thisrow{#1}}
+            \edef\tempb{#2}
+            \ifx\tempa\tempb
+            \else
+                \def\pgfmathresult{inf}
+            \fi
+        }
+    }
+}
+
+\tikzset{CircSoftmax/.style={mark options={solid},color=TUMLightBlue, line width=1.0pt, mark=diamond}}%
+\tikzset{IdReLU/.style={mark options={solid},color=TUMOrange, line width=1.0pt, mark=o}}%
+\tikzset{IdSoftmax/.style={mark options={solid},color=TUMDarkerBlue, line width=1.0pt, mark=square}}%
+\tikzset{ToepReLU/.style={mark options={solid},color=TUMBlack,line width=1.0pt}}%
+\tikzset{CircReLU/.style={mark options={solid},color=TUMGreen,line width=1.0pt}}%
+\tikzset{ToepSoftmax/.style={mark options={solid},color=TUMBeamerYellow,line width=1.0pt}}%
+
+\tikzset{OMP/.style={mark options={solid},color=TUMBeamerRed,line width=1.0pt}}%
+
+\tikzset{NNInput/.style={mark options={solid},color=TUMMediumBlue,line width=1.0pt}}%
+
+\newlength{\plotheight}
+\setlength{\plotheight}{0.8\columnwidth}
+
+\begin{document}
+
+\subsection{8 antennas}
+\textbf{Sparsity = 6, 8 antennas}
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 0, xmax = 7000,
+    ylabel={\small MSE},
+    xlabel={\small Iteration},
+    title={},
+    legend entries={
+        \footnotesize CircSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize ToepSoftmax,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve8_sparsity_6_snr_0_copy3.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve8_sparsity_6_snr_0_copy3.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {LearningCurve8_6000_sparsity_6_snr_0.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve8_sparsity_6_snr_0_copy3.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve8_sparsity_6_snr_0_copy3.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve8_sparsity_6_snr_0_copy3.csv};           
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve8_sparsity_6_snr_0_copy3.csv};     
+\end{axis}
+\end{tikzpicture}
+\caption{
+    Learning curve for 8 antennas with 6000 iterations and SNR = 0dB
+}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 0, xmax = 7000,
+    ylabel={\small MSE},
+    xlabel={\small Iteration},
+    title={},
+    legend entries={
+        \footnotesize CircSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize ToepSoftmax,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve8_sparsity_6_snr_10_copy3.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve8_sparsity_6_snr_10_copy3.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve8_sparsity_6_snr_10_copy3.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve8_sparsity_6_snr_10_copy3.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve8_sparsity_6_snr_10_copy3.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve8_sparsity_6_snr_10_copy3.csv};           
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve8_sparsity_6_snr_10_copy3.csv};     
+\end{axis}
+\end{tikzpicture}
+\caption{
+    Learning curve for 8 antennas with 6000 iterations and SNR = 10dB
+}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\subsection{16 antennas}
+\textbf{Sparsity = 6,16 anetnnas }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%%[place/.style={circle,draw=red,fill=red,thick}]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 0, xmax = 7000,
+    ylabel={\small MSE},
+    xlabel={\small Iteration},
+    title={},
+    legend entries={
+        \footnotesize CircSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize ToepSoftmax,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve16_sparsity_6_snr_0_copy3.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve16_sparsity_6_snr_0_copy3.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve16_sparsity_6_snr_0_copy3.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve16_sparsity_6_snr_0_copy3.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve16_sparsity_6_snr_0_copy3.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve16_sparsity_6_snr_0_copy3.csv};           
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve16_sparsity_6_snr_0_copy3.csv};    
+\end{axis}
+\end{tikzpicture}
+\caption{
+    Learning curve for 16 antennas with 6000 iterations and SNR = 0dB}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%%[place/.style={circle,draw=red,fill=red,thick}]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 0, xmax = 7000,
+    ylabel={\small MSE},
+    xlabel={\small Iteration},
+    title={},
+    legend entries={
+        \footnotesize CircSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize ToepSoftmax,
+        \footnotesize OMP,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve16_sparsity_6_snr_10_copy3.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve16_sparsity_6_snr_10_copy3.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve16_sparsity_6_snr_10_copy3.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve16_sparsity_6_snr_10_copy3.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve16_sparsity_6_snr_10_copy3.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve16_sparsity_6_snr_10_copy3.csv};           
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/mariem/BA/Learning Curves (another copy)/LearningCurve16_sparsity_6_snr_10_copy3.csv};    
+\end{axis}
+\end{tikzpicture}
+\caption{
+    Learning curve for 16 antennas with 6000 iterations and SNR = 10dB}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
