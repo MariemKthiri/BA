@@ -73,17 +73,21 @@ end
     hest
 end=#
 mmse_genie(y,supp,h_cov,snr) = begin
-    rho = 10^(0.1*snr);
+    #rho = 10^(0.1*snr);
+    rho = 10^(snr/10)
     hest = zeros(y)
     (nAntennas,nCoherence,nBatches) = size(y)
-    C = zeros(nAntennas,nAntennas)
+    
     
     for b in 1:nBatches
-        for i in supp
+        C = zeros(nAntennas,nAntennas)
+        for i in supp[:,b]
             C[Int(i),Int(i)] = h_cov[b];
         end
         Cr = C + eye(nAntennas)./rho
         hest[:,:,b] = C*(Cr\y[:,:,b])
+        #Cr = C + eye(nAntennas)
+        #hest[:,:,b] = C*inv(Cr)*y[:,:,b]
     end
     hest
 end

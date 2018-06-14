@@ -27,7 +27,7 @@ sparsity = 4
 #-------------------------------------
 # Channel Model
 #
-snr        = 0 # [dB]
+snr        = 10 # [dB]
 antennas   = [8,16,32,64,96,128]
 AS         = 2.0 # standard deviation of Laplacian (angular spread)
 nCoherence = 1
@@ -79,8 +79,14 @@ function get_channel(sparsity, nAntennas, nCoherence, nBatches, seed)
     end
     #h = reshape(convert(Array{Complex{Float64},2}, h),nAntennas,nCoherence,nBatches)
     #return (h,t)
+    #t = cov(h[:,1,:])
     return (h,support,t)
 end
+
+function get_matrix(dims...)
+    exp.(im*rand(dims)*2*pi)
+end
+
 # method that samples C_delta from delta prior
 get_cov(nAntennas) = scm.toeplitzHe( scm.generate_channel(Channel, nAntennas, nCoherence=1)[2][:] )
 # get circulant vector that generates all covariance matrices for arbitrary delta (here: use delta=0)
@@ -95,8 +101,8 @@ get_circ_cov_generator(nAntennas) = real(scm.best_circulant_approximation(scm.sc
 #
 #learning_rates_relu    = 1e-4*64./antennas # make learning rates dependend on nAntennas
 #learning_rates_softmax = 1e-3*ones(antennas)
-learning_rates_relu    = 1e-6*64./antennas # make learning rates dependend on nAntennas
-learning_rates_softmax = 1e-5*ones(antennas)
+learning_rates_relu    = 5e-5*64./antennas # make learning rates dependend on nAntennas
+learning_rates_softmax = 5e-4*ones(antennas)
 nLayers = 2
 nLearningBatches   = 8000
 nLearningBatchSize = 50
@@ -109,7 +115,7 @@ nn_est       = Dict{Symbol,Any}()
 #for snr in -10:5:20
 #for sparsity in [2,4,8]
 #for iAntenna in 1:length(antennas)
-for iAntenna in 1:1
+for iAntenna in 1:3
     nAntennas     = antennas[iAntenna]
 
     verbose && println("Simulating with ", nAntennas, " antennas")
@@ -222,13 +228,13 @@ end
 # N: Number of measurements
 MSE_OMP = zeros(length(antennas))
 rate_OMP = zeros(length(antennas))
-N       = 1000
+N       = 300
 
 #for iAntenna in 1:length(antennas)
 #for snr in -10:5:20
 #for sparsity in [2,4,8]
     rho = 10^(0.1*snr);
-for iAntenna in 1:1
+for iAntenna in 1:3
     nAntennas  = antennas[iAntenna]
     #nAntennas = iAntenna
     for bb in 1:nBatches
@@ -236,8 +242,12 @@ for iAntenna in 1:1
         y = h + 10^(-snr/20) * crandn(size(h)...)
         hest = zeros(Complex128,size(h)...)
         for j=1:nBatchSize ,t=1:nCoherence
-                (hest[:,t,j],_) = OMP(y[:,t,j],size(h)[1],m,N)
-                
+                #(hest[:,t,j],_) = OMP(y[:,t,j],size(h)[1],m,N)
+                ind = sortperm(abs.(y[:,t,j]), rev=true)[1:sparsity]
+                for i in ind
+                    hest[i,t,j] = y[i,t,j]
+                end
+                #hest[:,t,j] = sort(abs.(y[:,t,j]),rev=true)[1:sparsity]
                 rate_OMP[iAntenna] += log2(1 + rho*abs2(dot(h[:,t,j],hest[:,t,j]))/max(1e-8,sum(abs2,hest)))/length(h[1,:,:])/nBatches
             #end
         end
@@ -267,7 +277,7 @@ end
 #-------------------------------------
 # Testing with 128 Antennas
 nbr_samples       = 6000
-nbr_antennas_test = 8
+nbr_antennas_test = 32
 mean_value_input  = zeros(nbr_antennas_test, nCoherence)
 mean_value_output = zeros(nbr_antennas_test, nCoherence,7)
 Test_Set_input    = zeros(Complex128, nbr_antennas_test, nCoherence, nbr_samples)
@@ -418,66 +428,66 @@ for (alg,_) in algs
     end
 end
 #-------------------------------------------------
-CSV.write("/home/mariem/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_$(m)_snr_$(snr)_dB_8_antennas.csv", results)
+CSV.write("/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_$(m)_snr_$(snr)_dB_32_antennas_OMP_sort.csv", results)
 
-#CSV.write("/home/mariem/BA/Learning Curves/LearningCurves_sparsity_$(m)_snr_$(snr)_dB.csv", results)
+#CSV.write("/home/kthiri/BA/Learning Curves/LearningCurves_sparsity_$(m)_snr_$(snr)_dB.csv", results)
 
-CSV.write("/home/mariem/BA/Sparsity Tests (another copy)/test_sparsity_$(m)_snr_$(snr)_dB_8_antennas.csv", test_results)
+CSV.write("/home/kthiri/BA/Sparsity Tests (another copy)/test_sparsity_$(m)_snr_$(snr)_dB_32_antennas_OMP_sort.csv", test_results)
 
-CSV.write("/home/mariem/BA/Support Tests (another copy)/supp_test_sparsity_$(m)_snr_$(snr)_dB_8_antennas.csv", supp_results)
+CSV.write("/home/kthiri/BA/Support Tests (another copy)/supp_test_sparsity_$(m)_snr_$(snr)_dB_32_antennas_OMP_sort.csv", supp_results)
 
-CSV.write("/home/mariem/BA/MSE = f(SNR)/sparsity_$(m).csv", results)
-CSV.write("/home/mariem/BA/MSE = f(sparsity)/snr_$(snr).csv", results)
+CSV.write("/home/kthiri/BA/MSE = f(SNR)/sparsity_$(m).csv", results)
+CSV.write("/home/kthiri/BA/MSE = f(sparsity)/snr_$(snr).csv", results)
 #end
 #-------------------------------------
 using Gadfly
 mse_plot = plot(results, x=:nAntennas, y=:MSE, color=:Algorithm, Geom.point, Geom.line);
-draw(SVG("/home/mariem/BA/MSE = f(nAntennas) (another copy)/MSE_sparsity_$(m)_snr_$(snr)_dB.svg", 3inch, 3inch), mse_plot)
+draw(SVG("/home/kthiri/BA/MSE = f(nAntennas) (another copy)/MSE_sparsity_$(m)_snr_$(snr)_dB.svg", 3inch, 3inch), mse_plot)
 
 rates_plot = plot(results, x=:nAntennas, y=:rate, color=:Algorithm, Geom.point, Geom.line);
-draw(SVG("/home/mariem/BA/MSE = f(nAntennas) (another copy)/rates_sparsity_$(m)_snr_$(snr)_dB.svg", 3inch, 3inch), rates_plot)
+draw(SVG("/home/kthiri/BA/MSE = f(nAntennas) (another copy)/rates_sparsity_$(m)_snr_$(snr)_dB.svg", 3inch, 3inch), rates_plot)
 
 #--------------------------------------
 for i in antennas[1:3]
     mse_plot = plot(results[results[:nAntennas].==i,[:MSE,:rate,:Algorithm,:Iteration,:SNR,:nAntennas,:nCoherence]], x=:Iteration, y=:MSE, color=:Algorithm, Geom.point, Geom.line,Guide.title("sparsity $(m), SNR = $(snr)dB"));
-    draw(SVG("/home/mariem/BA/Learning Curves (another copy)/LearningCurve_$(i)_antennas_sparsity_$(m)_snr_$(snr).svg", 3inch, 3inch), mse_plot)
+    draw(SVG("/home/kthiri/BA/Learning Curves (another copy)/LearningCurve_$(i)_antennas_sparsity_$(m)_snr_$(snr).svg", 3inch, 3inch), mse_plot)
 end
 
 LearningCurve8 = DataFrame()
 LearningCurve8 = results[results[:nAntennas].==8,[:MSE,:rate,:Algorithm,:Iteration,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/mariem/BA/Learning Curves (another copy)/LearningCurve8_sparsity_$(m)_snr_$(snr).csv", LearningCurve8)
+CSV.write("/home/kthiri/BA/Learning Curves (another copy)/LearningCurve8_sparsity_$(m)_snr_$(snr).csv", LearningCurve8)
 
 LearningCurve16 = DataFrame()
 LearningCurve16 = results[results[:nAntennas].==16,[:MSE,:rate,:Algorithm,:Iteration,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/mariem/BA/Learning Curves (another copy)/LearningCurve16_sparsity_$(m)_snr_$(snr).csv", LearningCurve16)
+CSV.write("/home/kthiri/BA/Learning Curves (another copy)/LearningCurve16_sparsity_$(m)_snr_$(snr).csv", LearningCurve16)
 
 LearningCurve32 = DataFrame()
 LearningCurve32 = results[results[:nAntennas].==32,[:MSE,:rate,:Algorithm,:Iteration,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/mariem/BA/Learning Curves (another copy)/LearningCurve32_sparsity_$(m)_snr_$(snr).csv", LearningCurve32)
+CSV.write("/home/kthiri/BA/Learning Curves (another copy)/LearningCurve32_sparsity_$(m)_snr_$(snr).csv", LearningCurve32)
 
-#for (alg,est) in nn_est cntf.save(est, "/home/mariem/BA/$(String(alg))_copy3.jl") end
-
-plot_8_antennas = DataFrame()
-plot_8_antennas = results[results[:nAntennas].==8,[:MSE,:rate,:Algorithm,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/mariem/BA/MSE = f(SNR)/sparsity_$(m)_8_antennas.csv", plot_8_antennas)
-
-plot_16_antennas = DataFrame()
-plot_16_antennas = results[results[:nAntennas].==16,[:MSE,:rate,:Algorithm,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/mariem/BA/MSE = f(SNR)/sparsity_$(m)_16_antennas.csv", plot_16_antennas)
-
-plot_32_antennas = DataFrame()
-plot_32_antennas = results[results[:nAntennas].==32,[:MSE,:rate,:Algorithm,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/mariem/BA/MSE = f(SNR)/sparsity_$(m)_32_antennas.csv", plot_32_antennas)
-
+#for (alg,est) in nn_est cntf.save(est, "/home/kthiri/BA/$(String(alg))_copy3.jl") end
 
 plot_8_antennas = DataFrame()
 plot_8_antennas = results[results[:nAntennas].==8,[:MSE,:rate,:Algorithm,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/mariem/BA/MSE = f(sparsity)/snr_$(snr)_8_antennas.csv", plot_8_antennas)
+CSV.write("/home/kthiri/BA/MSE = f(SNR)/sparsity_$(m)_8_antennas.csv", plot_8_antennas)
 
 plot_16_antennas = DataFrame()
 plot_16_antennas = results[results[:nAntennas].==16,[:MSE,:rate,:Algorithm,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/mariem/BA/MSE = f(sparsity)/snr_$(snr)_16_antennas.csv", plot_16_antennas)
+CSV.write("/home/kthiri/BA/MSE = f(SNR)/sparsity_$(m)_16_antennas.csv", plot_16_antennas)
 
 plot_32_antennas = DataFrame()
 plot_32_antennas = results[results[:nAntennas].==32,[:MSE,:rate,:Algorithm,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/mariem/BA/MSE = f(sparsity)/snr_$(snr)_32_antennas.csv", plot_32_antennas)
+CSV.write("/home/kthiri/BA/MSE = f(SNR)/sparsity_$(m)_32_antennas.csv", plot_32_antennas)
+
+
+plot_8_antennas = DataFrame()
+plot_8_antennas = results[results[:nAntennas].==8,[:MSE,:rate,:Algorithm,:SNR,:nAntennas,:nCoherence]]
+CSV.write("/home/kthiri/BA/MSE = f(sparsity)/snr_$(snr)_8_antennas.csv", plot_8_antennas)
+
+plot_16_antennas = DataFrame()
+plot_16_antennas = results[results[:nAntennas].==16,[:MSE,:rate,:Algorithm,:SNR,:nAntennas,:nCoherence]]
+CSV.write("/home/kthiri/BA/MSE = f(sparsity)/snr_$(snr)_16_antennas.csv", plot_16_antennas)
+
+plot_32_antennas = DataFrame()
+plot_32_antennas = results[results[:nAntennas].==32,[:MSE,:rate,:Algorithm,:SNR,:nAntennas,:nCoherence]]
+CSV.write("/home/kthiri/BA/MSE = f(sparsity)/snr_$(snr)_32_antennas.csv", plot_32_antennas)

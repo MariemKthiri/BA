@@ -42,16 +42,18 @@ function toep_trans(x,tp)
     y
 end
 
-function train_batch!(nn_est; snr = 0, nBatches = 1, get_channel = () -> 0.0, verbose = false)
+function train_batch!(nn_est, matrix; snr = 0, nBatches = 1, get_channel = () -> 0.0, verbose = false)
     verbose && @printf "Learning: "
     for b in 1:nBatches
         verbose && mod(b,ceil(Int,nBatches/10))==0 && @printf " ... %.0f%%" b/nBatches*100
 
         (h,h_cov,_) = get_channel()
         a = squeeze(h,2)
+        #print(size(matrix))
+        #print(size(h))
         #a = h[:,:,b]
-        y = h + 10^(-snr/20) * crandn(size(h)...)
-        #y = reshape(haar(size(a)[1]) * a, size(h)...) + 10^(-snr/20) * crandn(size(h)...)
+        #y = h + 10^(-snr/20) * crandn(size(h)...)
+        y = reshape(matrix * a, size(h)...) + 10^(-snr/20) * crandn(size(h)...)
         #y = reshape((randn(size(a)[1],size(a)[1]) * a), size(h)...) + 10^(-snr/20) * crandn(size(h)...)
         for (_,nn) in nn_est
             train!(nn,y,h)
@@ -76,9 +78,10 @@ mmse_genie(y,supp,h_cov,snr) = begin
     rho = 10^(0.1*snr);
     hest = zeros(y)
     (nAntennas,nCoherence,nBatches) = size(y)
-    C = zeros(nAntennas,nAntennas)
+   
     
     for b in 1:nBatches
+        C = zeros(nAntennas,nAntennas)
         for i in supp[b][1]
             C[Int(i),Int(i)] = h_cov[b];
             #C[(i),(i)] = h_cov[b];
@@ -89,7 +92,7 @@ mmse_genie(y,supp,h_cov,snr) = begin
     hest
 end
 
-function evaluate(algs; snr = 0, nBatches = 1, get_channel = () -> 0.0, get_observation = h -> h, verbose = false)
+function evaluate(algs, matrix; snr = 0, nBatches = 1, get_channel = () -> 0.0, get_observation = h -> h, verbose = false)
     errs  = Dict{Symbol,Any}()
     rates = Dict{Symbol,Any}()
 
@@ -107,8 +110,8 @@ function evaluate(algs; snr = 0, nBatches = 1, get_channel = () -> 0.0, get_obse
         (h,supp,h_cov) = get_channel()
         y0  = get_observation(h)
         a = squeeze(y0,2)
-        y   = y0 + 10^(-snr/20) * crandn(size(y0)...)
-        #y   = reshape((U * a), size(y0)...) + 10^(-snr/20) * crandn(size(y0)...)
+        #y   = y0 + 10^(-snr/20) * crandn(size(y0)...)
+        y   = reshape(matrix * a, size(y0)...) + 10^(-snr/20) * crandn(size(y0)...)
         #y   = reshape((rand(size(a)[1],size(a)[1]) * a), size(y0)...) + 10^(-snr/20) * crandn(size(y0)...)
         (nAntennas,nCoherence,nBatchSize) = size(h)
         for (alg,est) in algs
