@@ -111,7 +111,7 @@ function ConvNN(kernels::Array{TensorFlow.Variables.Variable}, biases::Array{Ten
 
     # target_shape is a bit messy because nCoherence is not known when the
     # NN is defined
-    QoutTP = constant(Complex64.(outTransform(eye(nFilterLength)).'))
+    QoutTP = constant(Complex64.(outTransform(eye(Int(nFilterLength))).'))
     target_shape = concat([size(est.y)[1:2], size(QoutTP)[2:2]], 1)
     est.x_out = reshape(reshape(est.x, [-1,nFilterLength]) * QoutTP, target_shape) # dims: nBatches, nCoherence, nOut
 

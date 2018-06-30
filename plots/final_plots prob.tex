@@ -188,28 +188,28 @@
 ]
 \addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
     table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
-    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_20_dB_prob_25.0.csv};
+    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_8_snr_20_dB_prob_25.0.csv};
 \addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
     table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
-    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_20_dB_prob_25.0.csv};
+    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_8_snr_20_dB_prob_25.0.csv};
 \addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
     table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
-    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_20_dB_prob_25.0.csv};
+    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_8_snr_20_dB_prob_25.0.csv};
 \addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
     table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
-    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_20_dB_prob_25.0.csv};
+    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_8_snr_20_dB_prob_25.0.csv};
 \addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
     table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
-    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_20_dB_prob_25.0.csv};
+    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_8_snr_20_dB_prob_25.0.csv};
 \addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
     table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
-    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_20_dB_prob_25.0.csv};
+    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_8_snr_20_dB_prob_25.0.csv};
 \addplot[OMP,discard if not={Algorithm}{OMP} ]
     table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
-    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_20_dB_prob_25.0.csv};    
+    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_20_dB_prob_25.0_OMP.csv};    
 \addplot[GenieAidedMMSE,discard if not={Algorithm}{GenieAidedMMSE} ]
     table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
-    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_4_snr_20_dB_prob_25.0.csv};    
+    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_8_snr_20_dB_prob_25.0.csv};    
 
 \end{axis}
 \end{tikzpicture}
@@ -261,7 +261,7 @@
     {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_8_snr_20_dB_prob_25.0.csv};
 \addplot[OMP,discard if not={Algorithm}{OMP} ]
     table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
-    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_8_snr_20_dB_prob_25.0.csv};\addplot[GenieAidedMMSE,discard if not={Algorithm}{GenieAidedMMSE} ]
+    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_20_dB_prob_25.0_OMP.csv};\addplot[GenieAidedMMSE,discard if not={Algorithm}{GenieAidedMMSE} ]
     table [ignore chars=",x=nAntennas,y=rate,col sep=comma]
     {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_sparsity_8_snr_20_dB_prob_25.0.csv};    
 \end{axis}
@@ -447,7 +447,7 @@
     {/home/kthiri/BA/Sparsity Tests (another copy)/test_sparsity_8_snr_20_dB_prob_25.0.csv};           
 \addplot[OMP,discard if not={Algorithm}{OMP} ]
     table [ignore chars=",x=input,y=output,col sep=comma]
-    {/home/kthiri/BA/Sparsity Tests (another copy)/test_sparsity_8_snr_20_dB_prob_25.0.csv}; 
+    {/home/kthiri/BA/Sparsity Tests (another copy)/test_snr_20_dB_prob_25.0_OMP.csv}; 
 \addplot[GenieAidedMMSE,discard if not={Algorithm}{GenieAidedMMSE} ]
     table [ignore chars=",x=input,y=output,col sep=comma]
     {/home/kthiri/BA/Sparsity Tests (another copy)/test_sparsity_8_snr_20_dB_prob_25.0.csv}; 
@@ -502,9 +502,9 @@
 \addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
     table [ignore chars=",x=SNR,y=MSE,col sep=comma]
     {/home/kthiri/BA/MSE = f(SNR)/sparsity_25.0_8_antennas_prob.csv}; 
-%\addplot[OMP,discard if not={Algorithm}{OMP} ]
-%    table [ignore chars=",x=SNR,y=MSE,col sep=comma]
-%    {/home/kthiri/BA/MSE = f(SNR)/sparsity_25.0_8_antennas_prob.csv}; 
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=SNR,y=MSE,col sep=comma]
+    {/home/kthiri/BA/MSE = f(SNR)/sparsity_25.0_8_antennas_OMP.csv}; 
 \addplot[GenieAidedMMSE,discard if not={Algorithm}{GenieAidedMMSE} ]
     table [ignore chars=",x=SNR,y=MSE,col sep=comma]
     {/home/kthiri/BA/MSE = f(SNR)/sparsity_25.0_8_antennas_prob.csv}; 
@@ -534,7 +534,7 @@
         \footnotesize ToepReLU,
         \footnotesize CircReLU,
         \footnotesize ToepSoftmax,
-        %\footnotesize OMP,
+        \footnotesize OMP,
         \footnotesize GenieAidedMMSE
     },
     legend style={at={(1.0,1.0)}, anchor=north east},
@@ -558,9 +558,9 @@
 \addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
     table [ignore chars=",x=SNR,y=MSE,col sep=comma]
     {/home/kthiri/BA/MSE = f(SNR)/sparsity_25.0_16_antennas_prob.csv}; 
-%\addplot[OMP,discard if not={Algorithm}{OMP} ]
-%    table [ignore chars=",x=SNR,y=MSE,col sep=comma]
-%    {/home/kthiri/BA/MSE = f(SNR)/sparsity_25.0_16_antennas_prob.csv}; 
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=SNR,y=MSE,col sep=comma]
+    {/home/kthiri/BA/MSE = f(SNR)/sparsity_25.0_16_antennas_OMP.csv}; 
 \addplot[GenieAidedMMSE,discard if not={Algorithm}{GenieAidedMMSE} ]
     table [ignore chars=",x=SNR,y=MSE,col sep=comma]
     {/home/kthiri/BA/MSE = f(SNR)/sparsity_25.0_16_antennas_prob.csv}; 
@@ -590,7 +590,7 @@
         \footnotesize ToepReLU,
         \footnotesize CircReLU,
         \footnotesize ToepSoftmax,
-        %\footnotesize OMP,
+        \footnotesize OMP,
         \footnotesize GenieAidedMMSE
     },
     legend style={at={(1.0,1.0)}, anchor=north east},
@@ -614,9 +614,9 @@
 \addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
     table [ignore chars=",x=SNR,y=MSE,col sep=comma]
     {/home/kthiri/BA/MSE = f(SNR)/sparsity_25.0_32_antennas_prob.csv}; 
-%\addplot[OMP,discard if not={Algorithm}{OMP} ]
-%    table [ignore chars=",x=SNR,y=MSE,col sep=comma]
-%    {/home/kthiri/BA/MSE = f(SNR)/sparsity_25.0_32_antennas_prob.csv}; 
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=SNR,y=MSE,col sep=comma]
+    {/home/kthiri/BA/MSE = f(SNR)/sparsity_25.0_32_antennas_OMP.csv}; 
 \addplot[GenieAidedMMSE,discard if not={Algorithm}{GenieAidedMMSE} ]
     table [ignore chars=",x=SNR,y=MSE,col sep=comma]
     {/home/kthiri/BA/MSE = f(SNR)/sparsity_25.0_32_antennas_prob.csv}; 
@@ -675,7 +675,7 @@
     {/home/kthiri/BA/MSE = f(sparsity)/snr_0_8_antennas_prob.csv}; 
 \addplot[OMP,discard if not={Algorithm}{OMP} ]
     table [ignore chars=",x=sparsity,y=MSE,col sep=comma]
-    {/home/kthiri/BA/MSE = f(sparsity)/snr_0_8_antennas_prob.csv}; 
+    {/home/kthiri/BA/MSE = f(sparsity)/snr_0_8_antennas_prob_OMP.csv}; 
 \addplot[GenieAidedMMSE,discard if not={Algorithm}{GenieAidedMMSE} ]
     table [ignore chars=",x=sparsity,y=MSE,col sep=comma]
     {/home/kthiri/BA/MSE = f(sparsity)/snr_0_8_antennas_prob.csv}; 
@@ -696,7 +696,7 @@
     ticks=both,
     xmin = 0, xmax = 0.6,
     ylabel={\small MSE},
-    xlabel={\small SNR},
+    xlabel={\small sparsity},
     title={},
     legend entries={
         \footnotesize CircSoftmax,
@@ -705,7 +705,7 @@
         \footnotesize ToepReLU,
         \footnotesize CircReLU,
         \footnotesize ToepSoftmax,
-        %\footnotesize OMP,
+        \footnotesize OMP,
         \footnotesize GenieAidedMMSE
     },
     legend style={at={(1.0,1.0)}, anchor=north east},
@@ -729,9 +729,9 @@
 \addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
     table [ignore chars=",x=sparsity,y=MSE,col sep=comma]
     {/home/kthiri/BA/MSE = f(sparsity)/snr_0_16_antennas_prob.csv}; 
-%\addplot[OMP,discard if not={Algorithm}{OMP} ]
-%    table [ignore chars=",x=sparsity,y=MSE,col sep=comma]
-%    {/home/kthiri/BA/MSE = f(sparsity)/snr_0_16_antennas_prob.csv}; 
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=sparsity,y=MSE,col sep=comma]
+    {/home/kthiri/BA/MSE = f(sparsity)/snr_0_16_antennas_prob.csv}; 
 \addplot[GenieAidedMMSE,discard if not={Algorithm}{GenieAidedMMSE} ]
     table [ignore chars=",x=sparsity,y=MSE,col sep=comma]
     {/home/kthiri/BA/MSE = f(sparsity)/snr_0_16_antennas_prob.csv}; 
@@ -752,7 +752,7 @@
     ticks=both,
     xmin = 0, xmax = 0.6,
     ylabel={\small MSE},
-    xlabel={\small SNR},
+    xlabel={\small sparsity},
     title={},
     legend entries={
         \footnotesize CircSoftmax,
@@ -785,9 +785,9 @@
 \addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
     table [ignore chars=",x=sparsity,y=MSE,col sep=comma]
     {/home/kthiri/BA/MSE = f(sparsity)/snr_0_32_antennas_prob.csv}; 
-%\addplot[OMP,discard if not={Algorithm}{OMP} ]
-%    table [ignore chars=",x=sparsity,y=MSE,col sep=comma]
-%    {/home/kthiri/BA/MSE = f(sparsity)/snr_0_32_antennas_prob.csv}; 
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=sparsity,y=MSE,col sep=comma]
+    {/home/kthiri/BA/MSE = f(sparsity)/snr_0_32_antennas_prob_OMP.csv}; 
 \addplot[GenieAidedMMSE,discard if not={Algorithm}{GenieAidedMMSE} ]
     table [ignore chars=",x=sparsity,y=MSE,col sep=comma]
     {/home/kthiri/BA/MSE = f(sparsity)/snr_0_32_antennas_prob.csv}; 
@@ -826,35 +826,95 @@
 ]
 \addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
     table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
-    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_0_dB_prob_25.0_sensing_matrix_final_10.csv};
+    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_0_dB_prob_25.0_sensing_matrix_final_5.csv};
 \addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
     table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
-    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_0_dB_prob_25.0_sensing_matrix_final_10.csv};
+    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_0_dB_prob_25.0_sensing_matrix_final_5.csv};
 \addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
     table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
-    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_0_dB_prob_25.0_sensing_matrix_final_10.csv};
+    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_0_dB_prob_25.0_sensing_matrix_final_5.csv};
 \addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
     table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
-    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_0_dB_prob_25.0_sensing_matrix_final_10.csv};
+    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_0_dB_prob_25.0_sensing_matrix_final_5.csv};
 \addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
     table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
-    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_0_dB_prob_25.0_sensing_matrix_final_10.csv};
+    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_0_dB_prob_25.0_sensing_matrix_final_5.csv};
 \addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
     table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
-    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_0_dB_prob_25.0_sensing_matrix_final_10.csv};
+    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_0_dB_prob_25.0_sensing_matrix_final_5.csv};
 \addplot[OMP,discard if not={Algorithm}{OMP} ]
     table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
-    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_0_dB_prob_25.0_sensing_matrix_final_10.csv};    
+    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_0_dB_prob_25.0_sensing_matrix_final_5.csv};    
 \addplot[GenieAidedMMSE,discard if not={Algorithm}{GenieAidedMMSE} ]
     table [ignore chars=",x=nAntennas,y=MSE,col sep=comma]
-    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_0_dB_prob_25.0_sensing_matrix_final_10.csv};    
+    {/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_0_dB_prob_25.0_sensing_matrix_final_5.csv};    
 
 \end{axis}
 \end{tikzpicture}
 \caption{
-    MSE with Sparse Recovery SNR = 20dB}
+    MSE with Sparse Recovery SNR = 0dB}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sparsity Tests}
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%[place/.style={circle,draw=red,fill=red,thick}]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 0, xmax = 32,
+    ylabel={\small Magnitude},
+    xlabel={\small index},
+    title={},
+    legend entries={
+    	\footnotesize $h_i$,
+        \footnotesize CircSoftmax,
+        \footnotesize IdReLU,
+        \footnotesize IdSoftmax,
+        \footnotesize ToepReLU,
+        \footnotesize CircReLU,
+        \footnotesize ToepSoftmax,
+        \footnotesize OMP,
+        \footnotesize GenieAidedMMSE
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+\addplot[NNInput,discard if not={Algorithm}{NNInput} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/kthiri/BA/Sparsity Tests (another copy)/test_snr_0_dB_prob_25.0_sensing_matrix_5.csv};
+\addplot[CircSoftmax,discard if not={Algorithm}{CircSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/kthiri/BA/Sparsity Tests (another copy)/test_snr_0_dB_prob_25.0_sensing_matrix_5.csv};
+\addplot[IdReLU,discard if not={Algorithm}{IdReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/kthiri/BA/Sparsity Tests (another copy)/test_snr_0_dB_prob_25.0_sensing_matrix_5.csv};
+\addplot[IdSoftmax,discard if not={Algorithm}{IdSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/kthiri/BA/Sparsity Tests (another copy)/test_snr_0_dB_prob_25.0_sensing_matrix_5.csv};
+\addplot[ToepReLU,discard if not={Algorithm}{ToepReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/kthiri/BA/Sparsity Tests (another copy)/test_snr_0_dB_prob_25.0_sensing_matrix_5.csv};
+\addplot[CircReLU,discard if not={Algorithm}{CircReLU} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/kthiri/BA/Sparsity Tests (another copy)/test_snr_0_dB_prob_25.0_sensing_matrix_5.csv};
+\addplot[ToepSoftmax,discard if not={Algorithm}{ToepSoftmax} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/kthiri/BA/Sparsity Tests (another copy)/test_snr_0_dB_prob_25.0_sensing_matrix_5.csv};           
+\addplot[OMP,discard if not={Algorithm}{OMP} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/kthiri/BA/Sparsity Tests (another copy)/test_snr_0_dB_prob_25.0_sensing_matrix_5.csv}; 
+\addplot[GenieAidedMMSE,discard if not={Algorithm}{GenieAidedMMSE} ]
+    table [ignore chars=",x=input,y=output,col sep=comma]
+    {/home/kthiri/BA/Sparsity Tests (another copy)/test_snr_0_dB_prob_25.0_sensing_matrix_5.csv}; 
+    
+\end{axis}
+\end{tikzpicture}
+\caption{
+    Comparison of input and output with CNN with 8000 samples and SNR = 0dB }
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \clearpage
 \begin{table}[!hb]

@@ -48,13 +48,15 @@ function train_batch!(nn_est, matrix; snr = 0, nBatches = 1, get_channel = () ->
         verbose && mod(b,ceil(Int,nBatches/10))==0 && @printf " ... %.0f%%" b/nBatches*100
 
         (h,h_cov,_) = get_channel()
+        (nAntennas,nCoherence,nBatches) = size(h)
         a = squeeze(h,2)
         #print(size(matrix))
         #print(size(h))
         #a = h[:,:,b]
         #y = h + 10^(-snr/20) * crandn(size(h)...)
-        y = reshape(matrix * a, size(h)...) + 10^(-snr/20) * crandn(size(h)...)
+        y = reshape(matrix * a, Int(nAntennas/2),nCoherence,nBatches) + 10^(-snr/20) * crandn(Int(nAntennas/2),nCoherence,nBatches)
         #y = reshape((randn(size(a)[1],size(a)[1]) * a), size(h)...) + 10^(-snr/20) * crandn(size(h)...)
+
         for (_,nn) in nn_est
             train!(nn,y,h)
         end
