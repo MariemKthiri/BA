@@ -6,16 +6,16 @@ using Utils
 using Distributions
 using StatsBase
 import SCM3GPP; const scm = SCM3GPP
-import CondNormalKnet; const cnk = CondNormalKnet
+#import CondNormalKnet; const cnk = CondNormalKnet
 import CondNormalTF; const cntf = CondNormalTF
 include("OMP.jl")
-#include("CondNormalKnet/src/CondNormalKnet.jl")
-#include("CondNormalKnet/src/ConvNN.jl")
+#include("CondNormalTF/src/CondNormalTF.jl")
+#include("CondNormalTF/src/ConvNN.jl")
 
 
-train!(est::CondNormalKnet.ConvNN, y, x0)  = CondNormalKnet.train!(est, y, x0)
+#train!(est::cnk.ConvNN, y, x0)  = cnk.train!(est, y, x0)
 train!(est::cntf.ConvNN, y, x0) = cntf.train!(est, y, x0)
-estimate(est::CondNormalKnet.ConvNN, y; noOutTransform = false)  = CondNormalKnet.estimate(est, y, noOutTransform = noOutTransform)
+#estimate(est::cnk.ConvNN, y; noOutTransform = false)  = cnk.estimate(est, y, noOutTransform = noOutTransform)
 estimate(est::cntf.ConvNN, y; noOutTransform = false) = cntf.estimate(est, y, noOutTransform = noOutTransform)
 
 include("sim_helpers.jl")
@@ -31,7 +31,7 @@ sparsity = 0.25 # 25%
 #-------------------------------------
 # Channel Model
 #
-snr        = 0 # [dB]
+snr        = 20 # [dB]
 antennas   = [8,16,32,64,96,128]
 AS         = 2.0 # standard deviation of Laplacian (angular spread)
 nCoherence = 1
@@ -142,9 +142,9 @@ end
 #for sparsity in [0.05,0.125,0.25,0.5]
 #for iAntenna in 1:length(antennas)
 
-for iAntenna in 1:1
+for iAntenna in 1:3
     nAntennas     = antennas[iAntenna]
-    for index in 1:1
+    for index in 1:50
         #matrix = rand(Normal(),nAntennas,nAntennas)
         matrix = matrices[iAntenna][index,:,:]
         #matrix = eye(nAntennas)
@@ -154,25 +154,25 @@ for iAntenna in 1:1
         # Network estimators
         if iAntenna == 1
             # Knet-based networks
-            nn_est[:KCircReLU] = CondNormalKnet.ConvNN(nLayers, Int(nAntennas/2),
-                                            inTransform  = (x) -> circ_trans(transform(matrix, x),:notransp),
+            #=nn_est[:KCircReLU] = cnk.ConvNN(nLayers, nAntennas,
+                                            inTransform  = (x) -> circ_trans(x,:notransp),
                                             outTransform = (x) -> circ_trans(x,:transp),
                                             learning_rate = learning_rates_relu[iAntenna])
-            nn_est[:KToepReLU] = CondNormalKnet.ConvNN(nLayers, Int(nAntennas/2),
-                                            inTransform  = (x) -> toep_trans(transform(matrix, x),:notransp),
+            nn_est[:KToepReLU] = cnk.ConvNN(nLayers, nAntennas,
+                                            inTransform  = (x) -> toep_trans(x,:notransp),
                                             outTransform = (x) -> toep_trans(x,:transp),
                                             learning_rate = learning_rates_relu[iAntenna])
-            nn_est[:KCircSoftmax] = CondNormalKnet.ConvNN(nLayers, Int(nAntennas/2),
-                                            inTransform  = (x) -> circ_trans(transform(matrix, x),:notransp),
+            nn_est[:KCircSoftmax] = cnk.ConvNN(nLayers, nAntennas,
+                                            inTransform  = (x) -> circ_trans(x,:notransp),
                                             outTransform = (x) -> circ_trans(x,:transp),
                                             learning_rate = learning_rates_relu[iAntenna],
-                                            activation = CondNormalKnet.softmax)
-            nn_est[:KToepSoftmax] = CondNormalKnet.ConvNN(nLayers, Int(nAntennas/2),
-                                            inTransform  = (x) -> toep_trans(transform(matrix, x),:notransp),
+                                            activation = cnk.softmax)
+            nn_est[:KToepSoftmax] = cnk.ConvNN(nLayers, nAntennas,
+                                            inTransform  = (x) -> toep_trans(x,:notransp),
                                             outTransform = (x) -> toep_trans(x,:transp),
                                             learning_rate = learning_rates_relu[iAntenna],
-                                            activation = CondNormalKnet.softmax)
-            
+                                            activation = cnk.softmax)
+            =#
             # TensorFlow-based networks
             nn_est[:CircReLU] = cntf.ConvNN(nLayers, Int(nAntennas/2),
                                             inTransform  = (x) -> circ_trans(transform(matrix, x),:notransp),
@@ -203,22 +203,22 @@ for iAntenna in 1:1
                                             activation = cntf.nn.softmax)                                           
             
         else
-            CondNormalKnet.resize!(nn_est[:KCircReLU],    nAntennas, learning_rate = learning_rates_relu[iAntenna])
-            CondNormalKnet.resize!(nn_est[:KToepReLU],    nAntennas, learning_rate = learning_rates_relu[iAntenna])
-            CondNormalKnet.resize!(nn_est[:KCircSoftmax], nAntennas, learning_rate = learning_rates_relu[iAntenna])
-            CondNormalKnet.resize!(nn_est[:KToepSoftmax], nAntennas, learning_rate = learning_rates_relu[iAntenna])
-            
-            nn_est[:CircReLU]    = cntf.resize(nn_est[:CircReLU], nAntennas,
+            #=cnk.resize!(nn_est[:KCircReLU],    nAntennas, learning_rate = learning_rates_relu[iAntenna])
+            cnk.resize!(nn_est[:KToepReLU],    nAntennas, learning_rate = learning_rates_relu[iAntenna])
+            cnk.resize!(nn_est[:KCircSoftmax], nAntennas, learning_rate = learning_rates_relu[iAntenna])
+            cnk.resize!(nn_est[:KToepSoftmax], nAntennas, learning_rate = learning_rates_relu[iAntenna])
+            =#
+            nn_est[:CircReLU]    = cntf.resize(nn_est[:CircReLU], Int(nAntennas/2),
                                             learning_rate = learning_rates_relu[iAntenna])
-            nn_est[:ToepReLU]    = cntf.resize(nn_est[:ToepReLU], nAntennas,
+            nn_est[:ToepReLU]    = cntf.resize(nn_est[:ToepReLU], Int(nAntennas/2),
                                             learning_rate = learning_rates_relu[iAntenna])
-            nn_est[:IdReLU]      = cntf.resize(nn_est[:IdReLU], nAntennas,
+            nn_est[:IdReLU]      = cntf.resize(nn_est[:IdReLU], Int(nAntennas/2),
                                             learning_rate = learning_rates_relu[iAntenna])
-            nn_est[:CircSoftmax] = cntf.resize(nn_est[:CircSoftmax], nAntennas,
+            nn_est[:CircSoftmax] = cntf.resize(nn_est[:CircSoftmax], Int(nAntennas/2),
                                             learning_rate = learning_rates_softmax[iAntenna])
-            nn_est[:ToepSoftmax] = cntf.resize(nn_est[:ToepSoftmax], nAntennas,
+            nn_est[:ToepSoftmax] = cntf.resize(nn_est[:ToepSoftmax], Int(nAntennas/2),
                                             learning_rate = learning_rates_softmax[iAntenna])
-            nn_est[:IdSoftmax]   = cntf.resize(nn_est[:IdSoftmax], nAntennas,
+            nn_est[:IdSoftmax]   = cntf.resize(nn_est[:IdSoftmax], Int(nAntennas/2),
                                             learning_rate = learning_rates_softmax[iAntenna])
         end
 
@@ -271,14 +271,13 @@ for sparsity in [0.125,0.25,0.5]
     rho = 10^(0.1*snr);
 for iAntenna in 1:3
     nAntennas  = antennas[iAntenna]
-    #for index in 1:10
-        #matrix = matrices[iAntenna][index,:,:]
-        matrix = eye(nAntennas)
+    for index in 1:50
+        matrix = matrices[iAntenna][index,:,:]
+        #matrix = eye(nAntennas)
         m = Int(sparsity * nAntennas)
         #nAntennas = iAntenna
         for bb in 1:nBatches
-            #(h, h_cov, _) = get_channel2(sparsity, nAntennas, nCoherence, nBatchSize, 2)
-            (h, h_cov, _) = get_channel(m, nAntennas, nCoherence, nBatchSize, 2)
+            (h, h_cov, _) = get_channel2(sparsity, nAntennas, nCoherence, nBatchSize, 2)
             y = reshape(matrix * squeeze(h, 2), size(h)...) + 10^(-snr/20) * crandn(size(h)...)
             hest = zeros(Complex128,size(h)...)
             for j=1:nBatchSize ,t=1:nCoherence
@@ -303,13 +302,9 @@ for iAntenna in 1:3
             results = vcat(results,new_row)
         end
         @show results
-    #end
+    end
 end
 end
-
-CSV.write("/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_$(snr)_dB_sparsity_$(100*sparsity)_OMP.csv", results)
-CSV.write("/home/kthiri/BA/MSE = f(sparsity)/snr_$(snr)_OMP.csv", results)
-CSV.write("/home/kthiri/BA/MSE = f(SNR)/sparsity_$(100*sparsity)_OMP.csv", results)
 
 algs = [:CircReLU, :ToepReLU, :IdReLU, :CircSoftmax, :ToepSoftmax, :IdSoftmax, :GenieAidedMMSE, :OMP]
 final_results = DataFrame()
@@ -375,8 +370,8 @@ for (alg,nn) in nn_est
     num += 1
 end
 #for index in 1:5
-    #matrix = matrices[3][1,:,:]
-    matrix = eye(nbr_antennas_test)
+    matrix = matrices[3][1,:,:]
+    #matrix = eye(nbr_antennas_test)
     #To do: influence of nCoherence
     for i=1:nbr_samples
         (h, h_cov,_)             = get_channel2(sparsity, nbr_antennas_test, nCoherence, 1, 2)
@@ -455,8 +450,8 @@ supp_est            = zeros(Int(m),nBatchSize)
 supp_est_sort       = zeros(Int(m),nBatchSize)
 hest                = zeros(Complex128,nbr_antennas_test, nCoherence, nBatchSize)
 #for index in 1:5
-    #matrix = matrices[3][1,:,:]
-    matrix = eye(nbr_antennas_test)
+    matrix = matrices[3][1,:,:]
+    #matrix = eye(nbr_antennas_test)
     for bb in 1:nBatches
         (h, supp, _) = get_channel2(sparsity, nbr_antennas_test, nCoherence, nBatchSize, 2)
         y = reshape(matrix * squeeze(h, 2), size(h)...) + 10^(-snr/20) * crandn(size(h)...)
@@ -526,116 +521,6 @@ for (alg,_) in algs
     end
 end
 
-#-------------------------------------------------
-CSV.write("/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_$(snr)_dB_prob_$(100*sparsity)_random_sensing_matrix_10.csv", results)
-
-CSV.write("/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_$(snr)_dB_prob_$(100*sparsity)_random_sensing_matrix_final_10.csv", final_results)
-
-CSV.write("/home/kthiri/BA/Sparsity Tests (another copy)/test_snr_$(snr)_dB_prob_$(100*sparsity)_random_sensing_matrix_10.csv", test_results)
-
-CSV.write("/home/kthiri/BA/Support Tests (another copy)/supp_test_snr_$(snr)_dB_prob_$(100*sparsity)_random_sensing_matrix_10.csv", supp_results)
-
-#CSV.write("/home/kthiri/BA/Sparsity Tests (another copy)/test_snr_$(snr)_dB_prob_$(100*sparsity)_32_random_sensing_matrix_10.csv", test_results)
-
-#CSV.write("/home/kthiri/BA/Support Tests (another copy)/supp_test_snr_$(snr)_dB_prob_$(100*sparsity)_32_random_sensing_matrix_10.csv", supp_results)
-
-plot_8_antennas = DataFrame()
-plot_8_antennas = final_results[final_results[:nAntennas].==8,[:MSE,:rate,:Algorithm,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/kthiri/BA/MSE = f(SNR)/sparsity_$(100*sparsity)_8_antennas_prob_random_sensing_matrix.csv", plot_8_antennas)
-
-plot_16_antennas = DataFrame()
-plot_16_antennas = final_results[final_results[:nAntennas].==16,[:MSE,:rate,:Algorithm,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/kthiri/BA/MSE = f(SNR)/sparsity_$(100*sparsity)_16_antennas_prob_random_sensing_matrix.csv", plot_16_antennas)
-
-plot_32_antennas = DataFrame()
-plot_32_antennas = final_results[final_results[:nAntennas].==32,[:MSE,:rate,:Algorithm,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/kthiri/BA/MSE = f(SNR)/sparsity_$(100*sparsity)_32_antennas_prob_random_sensing_matrix.csv", plot_32_antennas)
-
-#-------------------------------------------------
-CSV.write("/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_$(snr)_dB_prob_$(100*sparsity)_sensing_matrix_10.csv", results)
-
-CSV.write("/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_$(snr)_dB_prob_$(100*sparsity)_sensing_matrix_final_10.csv", final_results)
-
-CSV.write("/home/kthiri/BA/Sparsity Tests (another copy)/test_snr_$(snr)_dB_prob_$(100*sparsity)_sensing_matrix_10.csv", test_results)
-
-CSV.write("/home/kthiri/BA/Support Tests (another copy)/supp_test_snr_$(snr)_dB_prob_$(100*sparsity)_sensing_matrix_10.csv", supp_results)
-
-#CSV.write("/home/kthiri/BA/Sparsity Tests (another copy)/test_snr_$(snr)_dB_prob_$(100*sparsity)_32_sensing_matrix_10.csv", test_results)
-
-CSV.write("/home/kthiri/BA/Support Tests (another copy)/supp_test_snr_$(snr)_dB_prob_$(100*sparsity)_32_sensing_matrix_10.csv", supp_results)
-
-plot_8_antennas = DataFrame()
-plot_8_antennas = final_results[final_results[:nAntennas].==8,[:MSE,:rate,:Algorithm,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/kthiri/BA/MSE = f(SNR)/sparsity_$(100*sparsity)_8_antennas_prob_sensing_matrix.csv", plot_8_antennas)
-
-plot_16_antennas = DataFrame()
-plot_16_antennas = final_results[final_results[:nAntennas].==16,[:MSE,:rate,:Algorithm,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/kthiri/BA/MSE = f(SNR)/sparsity_$(100*sparsity)_16_antennas_prob_sensing_matrix.csv", plot_16_antennas)
-
-plot_32_antennas = DataFrame()
-plot_32_antennas = final_results[final_results[:nAntennas].==32,[:MSE,:rate,:Algorithm,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/kthiri/BA/MSE = f(SNR)/sparsity_$(100*sparsity)_32_antennas_prob_sensing_matrix.csv", plot_32_antennas)
-
-#-------------------------------------------------
-CSV.write("/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRecovery_snr_$(snr)_dB_prob_$(100*sparsity)_32.csv", results)
-
-#CSV.write("/home/kthiri/BA/Learning Curves/LearningCurves_sparsity_$(m)_snr_$(snr)_dB.csv", results)
-
-CSV.write("/home/kthiri/BA/Sparsity Tests (another copy)/test_snr_$(snr)_dB_prob_$(100*sparsity)_32.csv", test_results)
-
-CSV.write("/home/kthiri/BA/Support Tests (another copy)/supp_test_snr_$(snr)_dB_prob_$(100*sparsity)_32.csv", supp_results)
-
-CSV.write("/home/kthiri/BA/MSE = f(SNR)/sparsity_$(100*sparsity).csv", results)
-CSV.write("/home/kthiri/BA/MSE = f(sparsity)/snr_$(snr).csv", results)
-#end
-#-------------------------------------
-using Gadfly
-mse_plot = plot(results, x=:nAntennas, y=:MSE, color=:Algorithm, Geom.point, Geom.line);
-draw(SVG("/home/kthiri/BA/MSE = f(nAntennas) (another copy)/MSE_sparsity_$(m)_snr_$(snr)_dB.svg", 3inch, 3inch), mse_plot)
-
-rates_plot = plot(results, x=:nAntennas, y=:rate, color=:Algorithm, Geom.point, Geom.line);
-draw(SVG("/home/kthiri/BA/MSE = f(nAntennas) (another copy)/rates_sparsity_$(m)_snr_$(snr)_dB.svg", 3inch, 3inch), rates_plot)
-
-#--------------------------------------
-for i in antennas[1:3]
-    mse_plot = plot(results[results[:nAntennas].==i,[:MSE,:rate,:Algorithm,:Iteration,:SNR,:nAntennas,:nCoherence]], x=:Iteration, y=:MSE, color=:Algorithm, Geom.point, Geom.line,Guide.title("sparsity $(m), SNR = $(snr)dB"));
-    draw(SVG("/home/kthiri/BA/Learning Curves (another copy)/LearningCurve_$(i)_antennas_sparsity_$(m)_snr_$(snr).svg", 3inch, 3inch), mse_plot)
-end
-
-LearningCurve8 = DataFrame()
-LearningCurve8 = results[results[:nAntennas].==8,[:MSE,:rate,:Algorithm,:Iteration,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/kthiri/BA/Learning Curves (another copy)/LearningCurve8_sparsity_$(m)_snr_$(snr).csv", LearningCurve8)
-
-LearningCurve16 = DataFrame()
-LearningCurve16 = results[results[:nAntennas].==16,[:MSE,:rate,:Algorithm,:Iteration,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/kthiri/BA/Learning Curves (another copy)/LearningCurve16_sparsity_$(m)_snr_$(snr).csv", LearningCurve16)
-
-LearningCurve32 = DataFrame()
-LearningCurve32 = results[results[:nAntennas].==32,[:MSE,:rate,:Algorithm,:Iteration,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/kthiri/BA/Learning Curves (another copy)/LearningCurve32_sparsity_$(m)_snr_$(snr).csv", LearningCurve32)
-
-
-plot_8_antennas = DataFrame()
-plot_8_antennas = final_results[final_results[:nAntennas].==8,[:MSE,:rate,:Algorithm,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/kthiri/BA/MSE = f(SNR)/sparsity_$(100*sparsity)_8_antennas_prob_sensing_matrix.csv", plot_8_antennas)
-
-plot_16_antennas = DataFrame()
-plot_16_antennas = final_results[final_results[:nAntennas].==16,[:MSE,:rate,:Algorithm,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/kthiri/BA/MSE = f(SNR)/sparsity_$(100*sparsity)_16_antennas_prob_sensing_matrix.csv", plot_16_antennas)
-
-plot_32_antennas = DataFrame()
-plot_32_antennas = final_results[final_results[:nAntennas].==32,[:MSE,:rate,:Algorithm,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/kthiri/BA/MSE = f(SNR)/sparsity_$(100*sparsity)_32_antennas_prob_sensing_matrix.csv", plot_32_antennas)
-
-
-plot_8_antennas = DataFrame()
-plot_8_antennas = results[results[:nAntennas].==8,[:MSE,:rate,:Algorithm,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/kthiri/BA/MSE = f(sparsity)/snr_$(snr)_8_antennas_prob.csv", plot_8_antennas)
-
-plot_16_antennas = DataFrame()
-plot_16_antennas = results[results[:nAntennas].==16,[:MSE,:rate,:Algorithm,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/kthiri/BA/MSE = f(sparsity)/snr_$(snr)_16_antennas_prob.csv", plot_16_antennas)
-
-plot_32_antennas = DataFrame()
-plot_32_antennas = results[results[:nAntennas].==32,[:MSE,:rate,:Algorithm,:SNR,:nAntennas,:nCoherence]]
-CSV.write("/home/kthiri/BA/MSE = f(sparsity)/snr_$(snr)_32_antennas_prob.csv", plot_32_antennas)
+CSV.write("SparseRecovery16.csv", results)
+CSV.write("SparseRecovery16_sparsity_test.csv", test_results)
+CSV.write("SparseRecovery16_support_test.csv", support_results)

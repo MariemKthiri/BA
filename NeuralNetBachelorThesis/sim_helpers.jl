@@ -56,7 +56,6 @@ function train_batch!(nn_est, matrix; snr = 0, nBatches = 1, get_channel = () ->
         #y = h + 10^(-snr/20) * crandn(size(h)...)
         y = reshape(matrix * a, Int(nAntennas/2),nCoherence,nBatches) + 10^(-snr/20) * crandn(Int(nAntennas/2),nCoherence,nBatches)
         #y = reshape((randn(size(a)[1],size(a)[1]) * a), size(h)...) + 10^(-snr/20) * crandn(size(h)...)
-
         for (_,nn) in nn_est
             train!(nn,y,h)
         end
@@ -111,9 +110,10 @@ function evaluate(algs, matrix; snr = 0, nBatches = 1, get_channel = () -> 0.0, 
         verbose && mod(bb,ceil(Int,nBatches/10))==0 && @printf " ... %.0f%%" bb/nBatches*100        
         (h,supp,h_cov) = get_channel()
         y0  = get_observation(h)
+        (nAntennas,nCoherence,nBatches) = size(y0)
         a = squeeze(y0,2)
         #y   = y0 + 10^(-snr/20) * crandn(size(y0)...)
-        y   = reshape(matrix * a, size(y0)...) + 10^(-snr/20) * crandn(size(y0)...)
+        y   = reshape(matrix * a, Int(nAntennas/2),nCoherence,nBatches) + 10^(-snr/20) * crandn(Int(nAntennas/2),nCoherence,nBatches)
         #y   = reshape((rand(size(a)[1],size(a)[1]) * a), size(y0)...) + 10^(-snr/20) * crandn(size(y0)...)
         (nAntennas,nCoherence,nBatchSize) = size(h)
         for (alg,est) in algs
