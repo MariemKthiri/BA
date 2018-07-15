@@ -42,7 +42,7 @@ function toep_trans(x,tp)
     y
 end
 
-function train_batch!(nn_est, matrix; snr = 0, nBatches = 1, get_channel = () -> 0.0, verbose = false)
+function train_batch!(nn_est, matrix; snr = 0, nBatches = 1, get_channel = () -> 0.0,verbose = false)
     verbose && @printf "Learning: "
     for b in 1:nBatches
         verbose && mod(b,ceil(Int,nBatches/10))==0 && @printf " ... %.0f%%" b/nBatches*100
@@ -54,7 +54,7 @@ function train_batch!(nn_est, matrix; snr = 0, nBatches = 1, get_channel = () ->
         #print(size(h))
         #a = h[:,:,b]
         #y = h + 10^(-snr/20) * crandn(size(h)...)
-        y = reshape(matrix * a, Int(nAntennas/2),nCoherence,nBatches) + 10^(-snr/20) * crandn(Int(nAntennas/2),nCoherence,nBatches)
+        y = reshape(matrix * a, size(matrix)[1],nCoherence,nBatches) + 10^(-snr/20) * crandn(size(matrix)[1],nCoherence,nBatches)
         #y = reshape((randn(size(a)[1],size(a)[1]) * a), size(h)...) + 10^(-snr/20) * crandn(size(h)...)
         for (_,nn) in nn_est
             train!(nn,y,h)
@@ -113,7 +113,7 @@ function evaluate(algs, matrix; snr = 0, nBatches = 1, get_channel = () -> 0.0, 
         (nAntennas,nCoherence,nBatches) = size(y0)
         a = squeeze(y0,2)
         #y   = y0 + 10^(-snr/20) * crandn(size(y0)...)
-        y   = reshape(matrix * a, Int(nAntennas/2),nCoherence,nBatches) + 10^(-snr/20) * crandn(Int(nAntennas/2),nCoherence,nBatches)
+        y   = reshape(matrix * a, size(matrix)[1],nCoherence,nBatches) + 10^(-snr/20) * crandn(size(matrix)[1],nCoherence,nBatches)
         #y   = reshape((rand(size(a)[1],size(a)[1]) * a), size(y0)...) + 10^(-snr/20) * crandn(size(y0)...)
         (nAntennas,nCoherence,nBatchSize) = size(h)
         for (alg,est) in algs

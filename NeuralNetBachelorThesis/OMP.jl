@@ -2,12 +2,13 @@
 function OMP(s,d,m,N,phi)
 #phi = rand(d,N);
 #phi = eye(d,d)
-phi = transpose(phi);
+#phi = transpose(phi);
 #phi = eye(d)
-v = phi*s;
+#v = phi*s;
+v = s;
 #initialize residual, index set and counter
 r_t = v; t = 1; i_t = zeros(Int64,m); res = zeros(Complex128,d);
-phi_t=zeros(size(phi)...); 
+phi_t=zeros(Complex128,size(phi)...); 
 if(m>d)
     x = zeros(Complex128, m);
 else

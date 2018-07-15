@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.6.4)  28 JUN 2018 13:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.6.4)  13 JUL 2018 17:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -657,18 +657,18 @@ LaTeX Warning: Unused global option(s):
 (./final_plots prob.aux)
 \openout1 = `"final_plots prob.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -708,10 +708,10 @@ ABD: EveryShipout initializing macros
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.15} into 
 your preamble.
- on input line 46.
+ on input line 53.
 
 Chapter 1.
-Package pgfplots info on input line 77: Overriding colorspace to rgb due to xco
+Package pgfplots info on input line 84: Overriding colorspace to rgb due to xco
 lor configuration.
 PGFPlots: reading {"/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRec
 overy_sparsity_4_snr_20_dB_prob_50.csv"}
@@ -1065,20 +1065,20 @@ NOTE: coordinate (16,0.14501209156224673) has been dropped because it is unboun
 ded (in x). (see also unbounded coords=jump). 
 NOTE: coordinate (32,0.25284943593815273) has been dropped because it is unboun
 ded (in x). (see also unbounded coords=jump). 
-LaTeX Font Info:    Try loading font information for U+msa on input line 103.
+LaTeX Font Info:    Try loading font information for U+msa on input line 110.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 103.
+LaTeX Font Info:    Try loading font information for U+msb on input line 110.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (4.74095pt too wide) in paragraph at lines 104--106
+Overfull \hbox (4.74095pt too wide) in paragraph at lines 111--113
  [][] 
  []
 
-Package pgfplots info on input line 132: Overriding colorspace to rgb due to xc
+Package pgfplots info on input line 139: Overriding colorspace to rgb due to xc
 olor configuration.
 PGFPlots: reading {"/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRec
 overy_sparsity_4_snr_20_dB_prob_50.csv"}
@@ -1433,11 +1433,11 @@ d (in x). (see also unbounded coords=jump).
 NOTE: coordinate (32,5.415777879648952) has been dropped because it is unbounde
 d (in x). (see also unbounded coords=jump). 
 
-Overfull \hbox (4.43382pt too wide) in paragraph at lines 158--160
+Overfull \hbox (4.43382pt too wide) in paragraph at lines 165--167
  [][] 
  []
 
-Package pgfplots info on input line 188: Overriding colorspace to rgb due to xc
+Package pgfplots info on input line 195: Overriding colorspace to rgb due to xc
 olor configuration.
 PGFPlots: reading {"/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRec
 overy_sparsity_8_snr_20_dB_prob_25.0.csv"}
@@ -1750,7 +1750,7 @@ nded (in x). (see also unbounded coords=jump).
 NOTE: coordinate (32,0.012581243893710856) has been dropped because it is unbou
 nded (in x). (see also unbounded coords=jump). 
 
-Overfull \hbox (4.74095pt too wide) in paragraph at lines 215--217
+Overfull \hbox (4.74095pt too wide) in paragraph at lines 222--224
  [][] 
  []
 
@@ -1758,7 +1758,7 @@ Overfull \hbox (4.74095pt too wide) in paragraph at lines 215--217
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Package pgfplots info on input line 243: Overriding colorspace to rgb due to xc
+Package pgfplots info on input line 250: Overriding colorspace to rgb due to xc
 olor configuration.
 PGFPlots: reading {"/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRec
 overy_sparsity_8_snr_20_dB_prob_25.0.csv"}
@@ -2072,12 +2072,12 @@ NOTE: coordinate (16,4.20001428036617) has been dropped because it is unbounded
 NOTE: coordinate (32,5.189599629802971) has been dropped because it is unbounde
 d (in x). (see also unbounded coords=jump). 
 
-Overfull \hbox (4.43382pt too wide) in paragraph at lines 268--270
+Overfull \hbox (4.43382pt too wide) in paragraph at lines 275--277
  [][] 
  []
 
 [3] [4]
-Package pgfplots info on input line 307: Overriding colorspace to rgb due to xc
+Package pgfplots info on input line 314: Overriding colorspace to rgb due to xc
 olor configuration.
 PGFPlots: reading {"/home/kthiri/BA/Sparsity Tests (another copy)/test_sparsity
 _8_snr_0_dB_prob_25.0.csv"}
@@ -6196,10 +6196,10 @@ NOTE: coordinate (32,0.0) has been dropped because it is unbounded (in x). (see
  also unbounded coords=jump). 
 
 Package pgfplots Warning: the current plot has no coordinates (or all have been
- filtered away) on input line 334.
+ filtered away) on input line 341.
 
  [warning /pgfplots/warning/plot without coordinates]
-Package pgfplots info on input line 366: Overriding colorspace to rgb due to xc
+Package pgfplots info on input line 373: Overriding colorspace to rgb due to xc
 olor configuration.
 PGFPlots: reading {"/home/kthiri/BA/Sparsity Tests (another copy)/test_sparsity
 _8_snr_10_dB_prob_25.0.csv"}
@@ -10317,10 +10317,10 @@ NOTE: coordinate (32,0.0) has been dropped because it is unbounded (in x). (see
  also unbounded coords=jump). 
 
 Package pgfplots Warning: the current plot has no coordinates (or all have been
- filtered away) on input line 393.
+ filtered away) on input line 400.
 
  [warning /pgfplots/warning/plot without coordinates]
-Package pgfplots info on input line 426: Overriding colorspace to rgb due to xc
+Package pgfplots info on input line 433: Overriding colorspace to rgb due to xc
 olor configuration.
 PGFPlots: reading {"/home/kthiri/BA/Sparsity Tests (another copy)/test_sparsity
 _8_snr_20_dB_prob_25.0.csv"}
@@ -14438,10 +14438,10 @@ NOTE: coordinate (32,0.0) has been dropped because it is unbounded (in x). (see
  also unbounded coords=jump). 
 
 Package pgfplots Warning: the current plot has no coordinates (or all have been
- filtered away) on input line 453.
+ filtered away) on input line 460.
 
  [warning /pgfplots/warning/plot without coordinates]
-Package pgfplots info on input line 485: Overriding colorspace to rgb due to xc
+Package pgfplots info on input line 492: Overriding colorspace to rgb due to xc
 olor configuration.
 PGFPlots: reading {"/home/kthiri/BA/MSE = f(SNR)/sparsity_25.0_8_antennas_prob.
 csv"}
@@ -15145,7 +15145,7 @@ NOTE: coordinate (15,0.06692382905197532) has been dropped because it is unboun
 ded (in x). (see also unbounded coords=jump). 
 NOTE: coordinate (20,0.05325083396747371) has been dropped because it is unboun
 ded (in x). (see also unbounded coords=jump). 
-Package pgfplots info on input line 541: Overriding colorspace to rgb due to xc
+Package pgfplots info on input line 548: Overriding colorspace to rgb due to xc
 olor configuration.
 PGFPlots: reading {"/home/kthiri/BA/MSE = f(SNR)/sparsity_25.0_16_antennas_prob
 .csv"}
@@ -15849,7 +15849,7 @@ NOTE: coordinate (15,0.030841446740291486) has been dropped because it is unbou
 nded (in x). (see also unbounded coords=jump). 
 NOTE: coordinate (20,0.019921893303892053) has been dropped because it is unbou
 nded (in x). (see also unbounded coords=jump). 
-Package pgfplots info on input line 597: Overriding colorspace to rgb due to xc
+Package pgfplots info on input line 604: Overriding colorspace to rgb due to xc
 olor configuration.
 PGFPlots: reading {"/home/kthiri/BA/MSE = f(SNR)/sparsity_25.0_32_antennas_prob
 .csv"}
@@ -16556,7 +16556,7 @@ nded (in x). (see also unbounded coords=jump).
 [5
 
 ] [6] [7] [8] [9] [10]
-Package pgfplots info on input line 656: Overriding colorspace to rgb due to xc
+Package pgfplots info on input line 663: Overriding colorspace to rgb due to xc
 olor configuration.
 PGFPlots: reading {"/home/kthiri/BA/MSE = f(sparsity)/snr_0_8_antennas_prob.csv
 "}
@@ -16954,11 +16954,11 @@ ded (in x). (see also unbounded coords=jump).
 NOTE: coordinate (0.5,0.906855767452197) has been dropped because it is unbound
 ed (in x). (see also unbounded coords=jump). 
 
-Overfull \hbox (6.12984pt too wide) in paragraph at lines 684--686
+Overfull \hbox (6.12984pt too wide) in paragraph at lines 691--693
  [][] 
  []
 
-Package pgfplots info on input line 712: Overriding colorspace to rgb due to xc
+Package pgfplots info on input line 719: Overriding colorspace to rgb due to xc
 olor configuration.
 PGFPlots: reading {"/home/kthiri/BA/MSE = f(sparsity)/snr_0_16_antennas_prob.cs
 v"}
@@ -17411,11 +17411,11 @@ ded (in x). (see also unbounded coords=jump).
 NOTE: coordinate (0.5,0.899791567385357) has been dropped because it is unbound
 ed (in x). (see also unbounded coords=jump). 
 
-Overfull \hbox (6.12984pt too wide) in paragraph at lines 740--742
+Overfull \hbox (6.12984pt too wide) in paragraph at lines 747--749
  [][] 
  []
 
-Package pgfplots info on input line 768: Overriding colorspace to rgb due to xc
+Package pgfplots info on input line 775: Overriding colorspace to rgb due to xc
 olor configuration.
 PGFPlots: reading {"/home/kthiri/BA/MSE = f(sparsity)/snr_0_32_antennas_prob.cs
 v"}
@@ -17812,7 +17812,7 @@ ded (in x). (see also unbounded coords=jump).
 NOTE: coordinate (0.5,0.877675609062089) has been dropped because it is unbound
 ed (in x). (see also unbounded coords=jump). 
 
-Overfull \hbox (6.12984pt too wide) in paragraph at lines 796--798
+Overfull \hbox (6.12984pt too wide) in paragraph at lines 803--805
  [][] 
  []
 
@@ -17820,7 +17820,7 @@ Overfull \hbox (6.12984pt too wide) in paragraph at lines 796--798
 
 ] [12] [13]
 Chapter 2.
-Package pgfplots info on input line 826: Overriding colorspace to rgb due to xc
+Package pgfplots info on input line 833: Overriding colorspace to rgb due to xc
 olor configuration.
 PGFPlots: reading {"/home/kthiri/BA/MSE = f(nAntennas) (another copy)/SparseRec
 overy_snr_0_dB_prob_25.0_sensing_matrix_final_5.csv"}
@@ -18175,11 +18175,11 @@ ded (in x). (see also unbounded coords=jump).
 NOTE: coordinate (32,17.445442701491018) has been dropped because it is unbound
 ed (in x). (see also unbounded coords=jump). 
 
-Overfull \hbox (4.74095pt too wide) in paragraph at lines 853--855
+Overfull \hbox (4.74095pt too wide) in paragraph at lines 860--862
  [][] 
  []
 
-Package pgfplots info on input line 882: Overriding colorspace to rgb due to xc
+Package pgfplots info on input line 889: Overriding colorspace to rgb due to xc
 olor configuration.
 PGFPlots: reading {"/home/kthiri/BA/Sparsity Tests (another copy)/test_snr_0_dB
 _prob_25.0_sensing_matrix_5.csv"}
@@ -22297,19 +22297,760 @@ NOTE: coordinate (32,0.0) has been dropped because it is unbounded (in x). (see
  also unbounded coords=jump). 
 
 Package pgfplots Warning: the current plot has no coordinates (or all have been
- filtered away) on input line 909.
+ filtered away) on input line 916.
 
  [warning /pgfplots/warning/plot without coordinates]
 [14
 
-] [15] [16
+]
+Package pgfplots info on input line 946: Overriding colorspace to rgb due to xc
+olor configuration.
+PGFPlots: reading {/home/kthiri/Downloads/LearningCurve8_sparsity_0.25_snr_0.cs
+v}
+
+NOTE: coordinate (500,1.03018603448243) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.07482240443702) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.03109277855705) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.0183207729832) has been dropped because it is unbounded
+ (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.00693692041056) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,1.02555161625149) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,1.06373492568847) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,1.02208963718247) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,1.01070681937385) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,0.990792126545158) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,1.01750979780667) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,1.0454630072175) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,1.00479638414017) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,0.998635452938174) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,0.966738298976627) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,1.00638224989267) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,1.02166501329319) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,0.980823268155224) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,0.98359590029804) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,0.949177115357096) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.993002636628076) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.994428958393106) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.959648221867913) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.967536840095783) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.938068328171542) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.975657719768265) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.966127280554386) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.945083984471373) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.95225967436594) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.926983404739296) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.94147437659069) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.942065315803763) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.934380972743826) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.938967484622615) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.914479633907666) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.925413597823477) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.921882781324828) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.931223625079931) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.929465930212526) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.90116013713981) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.921721186347496) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.905009529511604) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.932459009912185) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.924826781158593) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.890215807658003) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.914699725847829) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.893900999323451) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.93756359787675) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.92548094647744) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.886949519447273) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.910523476891446) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.885735149543976) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.942471463320894) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.92630916084684) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.887137397917609) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.911786847020933) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.878778362058935) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.94606087921187) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.928602636931863) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.889785949270827) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+PGFPlots: reading {/home/kthiri/Downloads/LearningCurve8_sparsity_0.25_snr_0.cs
+v}
+NOTE: coordinate (500,1.03018603448243) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.07482240443702) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.0183207729832) has been dropped because it is unbounded
+ (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.00693692041056) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.00689471310627) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,1.02555161625149) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,1.06373492568847) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,1.01070681937385) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,0.990792126545158) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,0.999836209546269) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,1.01750979780667) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,1.0454630072175) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,0.998635452938174) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,0.966738298976627) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,0.988116497973564) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,1.00638224989267) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,1.02166501329319) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,0.98359590029804) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,0.949177115357096) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,0.9738386390584) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.993002636628076) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.994428958393106) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.967536840095783) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.938068328171542) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.961210142207807) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.975657719768265) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.966127280554386) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.95225967436594) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.926983404739296) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.950583822484252) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.94147437659069) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.942065315803763) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.938967484622615) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.914479633907666) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.941804366239046) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.925413597823477) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.921882781324828) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.929465930212526) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.90116013713981) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.933684955249192) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.921721186347496) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.905009529511604) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.924826781158593) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.890215807658003) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.926596867527317) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.914699725847829) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.893900999323451) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.92548094647744) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.886949519447273) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.919465021586025) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.910523476891446) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.885735149543976) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.92630916084684) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.887137397917609) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.912761623708302) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.911786847020933) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.878778362058935) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.928602636931863) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.889785949270827) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.908253569024152) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+PGFPlots: reading {/home/kthiri/Downloads/LearningCurve8_sparsity_0.25_snr_0.cs
+v}
+NOTE: coordinate (500,1.03018603448243) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.07482240443702) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.03109277855705) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.00693692041056) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.00689471310627) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,1.02555161625149) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,1.06373492568847) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,1.02208963718247) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,0.990792126545158) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,0.999836209546269) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,1.01750979780667) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,1.0454630072175) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,1.00479638414017) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,0.966738298976627) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,0.988116497973564) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,1.00638224989267) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,1.02166501329319) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,0.980823268155224) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,0.949177115357096) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,0.9738386390584) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.993002636628076) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.994428958393106) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.959648221867913) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.938068328171542) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.961210142207807) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.975657719768265) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.966127280554386) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.945083984471373) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.926983404739296) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.950583822484252) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.94147437659069) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.942065315803763) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.934380972743826) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.914479633907666) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.941804366239046) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.925413597823477) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.921882781324828) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.931223625079931) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.90116013713981) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.933684955249192) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.921721186347496) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.905009529511604) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.932459009912185) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.890215807658003) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.926596867527317) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.914699725847829) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.893900999323451) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.93756359787675) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.886949519447273) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.919465021586025) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.910523476891446) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.885735149543976) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.942471463320894) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.887137397917609) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.912761623708302) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.911786847020933) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.878778362058935) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.94606087921187) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.889785949270827) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.908253569024152) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+PGFPlots: reading {/home/kthiri/Downloads/LearningCurve8_sparsity_0.25_snr_0.cs
+v}
+NOTE: coordinate (500,1.03018603448243) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.07482240443702) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.03109277855705) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.0183207729832) has been dropped because it is unbounded
+ (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.00689471310627) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,1.02555161625149) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,1.06373492568847) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,1.02208963718247) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,1.01070681937385) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,0.999836209546269) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,1.01750979780667) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,1.0454630072175) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,1.00479638414017) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,0.998635452938174) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,0.988116497973564) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,1.00638224989267) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,1.02166501329319) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,0.980823268155224) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,0.98359590029804) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,0.9738386390584) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.993002636628076) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.994428958393106) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.959648221867913) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.967536840095783) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.961210142207807) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.975657719768265) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.966127280554386) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.945083984471373) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.95225967436594) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.950583822484252) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.94147437659069) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.942065315803763) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.934380972743826) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.938967484622615) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.941804366239046) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.925413597823477) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.921882781324828) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.931223625079931) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.929465930212526) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.933684955249192) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.921721186347496) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.905009529511604) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.932459009912185) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.924826781158593) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.926596867527317) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.914699725847829) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.893900999323451) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.93756359787675) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.92548094647744) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.919465021586025) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.910523476891446) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.885735149543976) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.942471463320894) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.92630916084684) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.912761623708302) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.911786847020933) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.878778362058935) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.94606087921187) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.928602636931863) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.908253569024152) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+PGFPlots: reading {/home/kthiri/Downloads/LearningCurve8_sparsity_0.25_snr_0.cs
+v}
+NOTE: coordinate (500,1.07482240443702) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.03109277855705) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.0183207729832) has been dropped because it is unbounded
+ (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.00693692041056) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.00689471310627) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,1.06373492568847) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,1.02208963718247) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,1.01070681937385) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,0.990792126545158) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,0.999836209546269) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,1.0454630072175) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,1.00479638414017) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,0.998635452938174) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,0.966738298976627) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,0.988116497973564) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,1.02166501329319) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,0.980823268155224) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,0.98359590029804) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,0.949177115357096) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,0.9738386390584) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.994428958393106) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.959648221867913) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.967536840095783) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.938068328171542) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.961210142207807) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.966127280554386) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.945083984471373) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.95225967436594) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.926983404739296) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.950583822484252) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.942065315803763) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.934380972743826) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.938967484622615) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.914479633907666) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.941804366239046) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.921882781324828) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.931223625079931) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.929465930212526) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.90116013713981) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.933684955249192) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.905009529511604) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.932459009912185) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.924826781158593) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.890215807658003) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.926596867527317) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.893900999323451) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.93756359787675) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.92548094647744) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.886949519447273) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.919465021586025) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.885735149543976) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.942471463320894) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.92630916084684) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.887137397917609) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.912761623708302) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.878778362058935) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.94606087921187) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.928602636931863) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.889785949270827) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.908253569024152) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+PGFPlots: reading {/home/kthiri/Downloads/LearningCurve8_sparsity_0.25_snr_0.cs
+v}
+NOTE: coordinate (500,1.03018603448243) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.03109277855705) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.0183207729832) has been dropped because it is unbounded
+ (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.00693692041056) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (500,1.00689471310627) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,1.02555161625149) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,1.02208963718247) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,1.01070681937385) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,0.990792126545158) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1000,0.999836209546269) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,1.01750979780667) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,1.00479638414017) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,0.998635452938174) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,0.966738298976627) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (1500,0.988116497973564) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,1.00638224989267) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,0.980823268155224) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,0.98359590029804) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,0.949177115357096) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2000,0.9738386390584) has been dropped because it is unbounde
+d (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.993002636628076) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.959648221867913) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.967536840095783) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.938068328171542) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (2500,0.961210142207807) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.975657719768265) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.945083984471373) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.95225967436594) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.926983404739296) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3000,0.950583822484252) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.94147437659069) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.934380972743826) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.938967484622615) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.914479633907666) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (3500,0.941804366239046) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.925413597823477) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.931223625079931) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.929465930212526) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.90116013713981) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4000,0.933684955249192) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.921721186347496) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.932459009912185) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.924826781158593) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.890215807658003) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (4500,0.926596867527317) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.914699725847829) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.93756359787675) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.92548094647744) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.886949519447273) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5000,0.919465021586025) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.910523476891446) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.942471463320894) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.92630916084684) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.887137397917609) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (5500,0.912761623708302) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.911786847020933) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.94606087921187) has been dropped because it is unbound
+ed (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.928602636931863) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.889785949270827) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+NOTE: coordinate (6000,0.908253569024152) has been dropped because it is unboun
+ded (in x). (see also unbounded coords=jump). 
+
+Overfull \hbox (12.05487pt too wide) in paragraph at lines 968--970
+ [][] 
+ []
+
+[15] [16] [17
 
 ] (./final_plots prob.aux) ) 
 Here is how much of TeX's memory you used:
- 24862 strings out of 492982
- 640797 string characters out of 6134897
- 1084572 words of memory out of 5000000
- 27947 multiletter control sequences out of 15000+600000
+ 24892 strings out of 492982
+ 641603 string characters out of 6134897
+ 1085378 words of memory out of 5000000
+ 27974 multiletter control sequences out of 15000+600000
  15508 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  64i,20n,115p,740b,2253s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -22325,10 +23066,10 @@ ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf
 nts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmsy7.pfb>
-Output written on "final_plots prob.pdf" (16 pages, 186188 bytes).
+Output written on "final_plots prob.pdf" (17 pages, 190958 bytes).
 PDF statistics:
- 107 PDF objects out of 1000 (max. 8388607)
- 76 compressed objects within 1 object stream
+ 110 PDF objects out of 1000 (max. 8388607)
+ 78 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

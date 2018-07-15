@@ -7,14 +7,11 @@ using Distributions
 using StatsBase
 import SCM3GPP; const scm = SCM3GPP
 import CondNormalKnet; const cnk = CondNormalKnet
-#import CondNormalTF; const cntf = CondNormalTF
 include("OMP.jl")
 
 
 train!(est::CondNormalKnet.ConvNN, y, x0)  = CondNormalKnet.train!(est, y, x0)
-#train!(est::cntf.ConvNN, y, x0) = cntf.train!(est, y, x0)
 estimate(est::CondNormalKnet.ConvNN, y; noOutTransform = false)  = CondNormalKnet.estimate(est, y, noOutTransform = noOutTransform)
-#estimate(est::cntf.ConvNN, y; noOutTransform = false) = cntf.estimate(est, y, noOutTransform = noOutTransform)
 
 include("sim_helpers.jl")
 
@@ -24,7 +21,6 @@ verbose = true
 #
 nBatches   = 200
 nBatchSize = 50
-#m = 4   # m : sparsity level
 sparsity = 0.25 # 25%
 #-------------------------------------
 # Channel Model
@@ -66,35 +62,35 @@ function get_channel(sparsity, nAntennas, nCoherence, nBatches, seed)
     I = sample(1:nAntennas,sparsity,replace=false)
     support[:,1] = I
     J = sample(1:nCoherence,sparsity)
-    #K = sample(1:nBatches,m,replace=false)
     h[:,:,1] = sparse(I,J,crandn(sparsity),nAntennas,nCoherence)
     t[1] = cov(vec(h[:,:,1]))
-    #h = reshape(convert(Array{Float64,2}, h),nAntennas,nCoherence,nBatches)
     for i=2:nBatches
         I = sample(1:nAntennas,sparsity,replace=false)
         support[:,i] = I
-        J = sample(1:nCoherence,sparsity)
-        #K = sample(1:nBatches,m,replace=false)
-        #h = hcat(h,sparse(I,J,crandn(m),nAntennas,nCoherence))     
+        J = sample(1:nCoherence,sparsity) 
         h[:,:,i] = sparse(I,J,crandn(sparsity),nAntennas,nCoherence)
         t[i] = cov(vec(h[:,:,i]))
-        #if i<=nAntennas t[i,i] = cov(vec(h[:,:,i]))  end
     end
-    #h = reshape(convert(Array{Complex{Float64},2}, h),nAntennas,nCoherence,nBatches)
-    #return (h,t)
     return (h,support,t)
 end
 
 function get_matrix(dims...)
     exp.(im*rand(dims)*2*pi)
 end
-
-function transform(matrix, x)
+matrices = Dict{Int,Any}()
+for iAntenna in 1:3
+    nAntennas = antennas[iAntenna]
+    matrices[iAntenna] = Array{Complex128}(50,Int(nAntennas*24/32),nAntennas)
+    for i in 1:50
+        (matrices[iAntenna][i,:,:] = get_matrix(Int(nAntennas*24/32), nAntennas))
+    end
+end
+function transform(iAntenna, index, x)
     s = size(x)
     if length(s)>2
-        return reshape(pinv(matrix)*squeeze(x,2),2*s[1],s[2],s[3])
+        return reshape(pinv(matrices[iAntenna][index,:,:])*squeeze(x,2),Int(32/24*s[1]),s[2],s[3])
     else
-        return pinv(matrix)*x
+        return pinv(matrices[iAntenna][index,:,:])*x
     end
 end
 
@@ -127,108 +123,52 @@ nn_est       = Dict{Symbol,Any}()
 MSE_OMP = zeros(length(antennas))
 rate_OMP = zeros(length(antennas))
 N       = 300
-matrices = Dict{Int,Any}()
-for iAntenna in 1:3
-    nAntennas = antennas[iAntenna]
-    matrices[iAntenna] = Array{Complex128}(50,Int(nAntennas/2),nAntennas)
-    for i in 1:50
-        (matrices[iAntenna][i,:,:] = get_matrix(Int(nAntennas/2), nAntennas))
-    end
-end
 
-#for snr in -10:5:20
-#for sparsity in [0.05,0.125,0.25,0.5]
-#for iAntenna in 1:length(antennas)
+
 
 for iAntenna in 1:3
     nAntennas     = antennas[iAntenna]
-    for index in 1:50
-        #matrix = rand(Normal(),nAntennas,nAntennas)
+    for index in 1:10
         matrix = matrices[iAntenna][index,:,:]
-        #matrix = eye(nAntennas)
-        #print(matrix)
         verbose && println("Simulating with ", nAntennas, " antennas")
 
         # Network estimators
         if iAntenna == 1
             # Knet-based networks
-            nn_est[:KCircReLU] = CondNormalKnet.ConvNN(nLayers, Int(nAntennas/2),
-                                            inTransform  = (x) -> circ_trans(transform(matrix, x),:notransp),
+            nn_est[:KCircReLU] = CondNormalKnet.ConvNN(nLayers, Int(nAntennas*24/32),
+                                            inTransform  = (x) -> circ_trans(transform(iAntenna, index, x),:notransp),
                                             outTransform = (x) -> circ_trans(x,:transp),
                                             learning_rate = learning_rates_relu[iAntenna])
-            nn_est[:KToepReLU] = CondNormalKnet.ConvNN(nLayers, Int(nAntennas/2),
-                                            inTransform  = (x) -> toep_trans(transform(matrix, x),:notransp),
+            nn_est[:KToepReLU] = CondNormalKnet.ConvNN(nLayers, Int(nAntennas*24/32),
+                                            inTransform  = (x) -> toep_trans(transform(iAntenna, index, x),:notransp),
                                             outTransform = (x) -> toep_trans(x,:transp),
                                             learning_rate = learning_rates_relu[iAntenna])
-            nn_est[:KIdReLU] = CondNormalKnet.ConvNN(nLayers, Int(nAntennas/2),
-                                            inTransform  = (x) -> transform(matrix, x),
+            nn_est[:KIdReLU] = CondNormalKnet.ConvNN(nLayers, Int(nAntennas*24/32),
+                                            inTransform  = (x) -> transform(iAntenna, index, x),
                                             outTransform = (x) -> x,
                                             learning_rate = learning_rates_relu[iAntenna])
-            nn_est[:KCircSoftmax] = CondNormalKnet.ConvNN(nLayers, Int(nAntennas/2),
-                                            inTransform  = (x) -> circ_trans(transform(matrix, x),:notransp),
+            nn_est[:KCircSoftmax] = CondNormalKnet.ConvNN(nLayers, Int(nAntennas*24/32),
+                                            inTransform  = (x) -> circ_trans(transform(iAntenna, index, x),:notransp),
                                             outTransform = (x) -> circ_trans(x,:transp),
                                             learning_rate = learning_rates_relu[iAntenna],
                                             activation = CondNormalKnet.softmax)
-            nn_est[:KToepSoftmax] = CondNormalKnet.ConvNN(nLayers, Int(nAntennas/2),
-                                            inTransform  = (x) -> toep_trans(transform(matrix, x),:notransp),
+            nn_est[:KToepSoftmax] = CondNormalKnet.ConvNN(nLayers, Int(nAntennas*24/32),
+                                            inTransform  = (x) -> toep_trans(transform(iAntenna, index, x),:notransp),
                                             outTransform = (x) -> toep_trans(x,:transp),
                                             learning_rate = learning_rates_relu[iAntenna],
                                             activation = CondNormalKnet.softmax)
-            nn_est[:KIdSoftmax] = CondNormalKnet.ConvNN(nLayers, Int(nAntennas/2),
-                                            inTransform  = (x) -> transform(matrix, x),
+            nn_est[:KIdSoftmax] = CondNormalKnet.ConvNN(nLayers, Int(nAntennas*24/32),
+                                            inTransform  = (x) -> transform(iAntenna, index, x),
                                             outTransform = (x) -> x,
                                             learning_rate = learning_rates_relu[iAntenna],
                                             activation = CondNormalKnet.softmax)
-            
-            # TensorFlow-based networks
-            #=
-            nn_est[:CircReLU] = cntf.ConvNN(nLayers, Int(nAntennas/2),
-                                            inTransform  = (x) -> circ_trans(transform(matrix, x),:notransp),
-                                            outTransform = (x) -> circ_trans(x,:transp),
-                                            learning_rate = learning_rates_relu[iAntenna])
-            nn_est[:ToepReLU] = cntf.ConvNN(nLayers, Int(nAntennas/2),
-                                            inTransform  = (x) -> toep_trans(transform(matrix, x),:notransp),
-                                            outTransform = (x) -> toep_trans(x,:transp),
-                                            learning_rate = learning_rates_relu[iAntenna])
-            nn_est[:IdReLU]   = cntf.ConvNN(nLayers, Int(nAntennas/2),
-                                            inTransform  = (x) -> transform(matrix, x),
-                                            outTransform = (x) -> x,
-                                            learning_rate = learning_rates_relu[iAntenna])
-            nn_est[:CircSoftmax] = cntf.ConvNN(nLayers, Int(nAntennas/2),
-                                            inTransform  = (x) -> circ_trans(transform(matrix, x),:notransp),
-                                            outTransform = (x) -> circ_trans(x,:transp),
-                                            learning_rate = learning_rates_softmax[iAntenna],
-                                            activation = cntf.nn.softmax)
-            nn_est[:ToepSoftmax] = cntf.ConvNN(nLayers, Int(nAntennas/2),
-                                            inTransform  = (x) -> toep_trans(transform(matrix, x),:notransp),
-                                            outTransform = (x) -> toep_trans(x,:transp),
-                                            learning_rate = learning_rates_softmax[iAntenna],
-                                            activation = cntf.nn.softmax)
-            nn_est[:IdSoftmax]   = cntf.ConvNN(nLayers, Int(nAntennas/2),
-                                            inTransform  = (x) -> transform(matrix, x),
-                                            outTransform = (x) -> x,
-                                            learning_rate = learning_rates_softmax[iAntenna],
-                                            activation = cntf.nn.softmax)                                           
-            =#
         else
-            CondNormalKnet.resize!(nn_est[:KCircReLU],    Int(nAntennas/2), learning_rate = learning_rates_relu[iAntenna])
-            CondNormalKnet.resize!(nn_est[:KToepReLU],    Int(nAntennas/2), learning_rate = learning_rates_relu[iAntenna])
-            CondNormalKnet.resize!(nn_est[:KCircSoftmax], Int(nAntennas/2), learning_rate = learning_rates_relu[iAntenna])
-            CondNormalKnet.resize!(nn_est[:KToepSoftmax], Int(nAntennas/2), learning_rate = learning_rates_relu[iAntenna])
-            #=
-            nn_est[:CircReLU]    = cntf.resize(nn_est[:CircReLU], Int(nAntennas/2),
-                                            learning_rate = learning_rates_relu[iAntenna])
-            nn_est[:ToepReLU]    = cntf.resize(nn_est[:ToepReLU], Int(nAntennas/2),
-                                            learning_rate = learning_rates_relu[iAntenna])
-            nn_est[:IdReLU]      = cntf.resize(nn_est[:IdReLU], Int(nAntennas/2),
-                                            learning_rate = learning_rates_relu[iAntenna])
-            nn_est[:CircSoftmax] = cntf.resize(nn_est[:CircSoftmax], Int(nAntennas/2),
-                                            learning_rate = learning_rates_softmax[iAntenna])
-            nn_est[:ToepSoftmax] = cntf.resize(nn_est[:ToepSoftmax], Int(nAntennas/2),
-                                            learning_rate = learning_rates_softmax[iAntenna])
-            nn_est[:IdSoftmax]   = cntf.resize(nn_est[:IdSoftmax], Int(nAntennas/2),
-                                            learning_rate = learning_rates_softmax[iAntenna])
-=#
+            CondNormalKnet.resize!(nn_est[:KCircReLU],    Int(nAntennas*24/32), learning_rate = learning_rates_relu[iAntenna])
+            CondNormalKnet.resize!(nn_est[:KToepReLU],    Int(nAntennas*24/32), learning_rate = learning_rates_relu[iAntenna])
+            CondNormalKnet.resize!(nn_est[:KIdReLU]  ,    Int(nAntennas*24/32), learning_rate = learning_rates_relu[iAntenna])
+            CondNormalKnet.resize!(nn_est[:KCircSoftmax], Int(nAntennas*24/32), learning_rate = learning_rates_relu[iAntenna])
+            CondNormalKnet.resize!(nn_est[:KToepSoftmax], Int(nAntennas*24/32), learning_rate = learning_rates_relu[iAntenna])
+            CondNormalKnet.resize!(nn_est[:KIdSoftmax]  , Int(nAntennas*24/32), learning_rate = learning_rates_relu[iAntenna])       
         end
 
         #for n = 1:nLearningBatches/500
@@ -240,15 +180,13 @@ for iAntenna in 1:3
             for (alg,nn) in nn_est
                 algs[alg] = (y,h,h_cov) -> estimate(nn, y)
             end
-            #push!(algs, (:GenieAidedMMSE => ((y,supp,h_cov,snr) -> mmse_genie(y,h_cov,snr))))
-
+            
             (errs,rates) = evaluate(algs, matrix, snr = snr, nBatches = nBatches, get_channel = () -> get_channel2(sparsity, nAntennas, nCoherence, nBatchSize, 2), verbose = verbose)
 
             for alg in keys(algs)
                 new_row = DataFrame(MSE        = errs[alg],
                                     rate       = rates[alg],
                                     Algorithm  = String(alg),
-                                    #Iteration  = 500*n,
                                     SNR        = snr, 
                                     nAntennas  = nAntennas,
                                     nCoherence = nCoherence,
@@ -262,36 +200,30 @@ for iAntenna in 1:3
             end
         #end
         @show results
-        #for (alg,est) in nn_est 
-        #    cntf.save(est, "/home/kthiri/BA/Neural Networks/(String($alg)_$(iAntenna)_antennas_$(index).jl") 
-        #end
     end
 end
 #end
 #-------------------------------------
 # Comparison with OMP
 
-#for iAntenna in 1:length(antennas)
-#for snr in -10:5:20
-#for sparsity in [0.125,0.25,0.5]
-    MSE_OMP = zeros(length(antennas))
-    rate_OMP = zeros(length(antennas))
-#for sparsity in [0.05,0.1,0.25,0.5]
-    rho = 10^(0.1*snr);
+MSE_OMP = zeros(length(antennas))
+rate_OMP = zeros(length(antennas))
+rho = 10^(0.1*snr);
 for iAntenna in 1:3
     nAntennas  = antennas[iAntenna]
-    for index in 1:50
+    for index in 1:10
+        MSE_OMP = zeros(length(antennas))
+        rate_OMP = zeros(length(antennas))
         matrix = matrices[iAntenna][index,:,:]
-        #matrix = eye(nAntennas)
-        m = Int(sparsity * nAntennas)
-        #nAntennas = iAntenna
+        m = Int(nAntennas*sparsity)
         for bb in 1:nBatches
-            #(h, h_cov, _) = get_channel2(sparsity, nAntennas, nCoherence, nBatchSize, 2)
-            (h, h_cov, _) = get_channel(m, nAntennas, nCoherence, nBatchSize, 2)
-            y = reshape(matrix * squeeze(h, 2), size(h)...) + 10^(-snr/20) * crandn(size(h)...)
-            hest = zeros(Complex128,size(h)...)
+            (h, h_cov, _) = get_channel2(sparsity, nAntennas, nCoherence, nBatchSize, 2)
+            (nAntennas,nCoherence,nBatches) = size(h)
+            #(h, h_cov, _) = get_channel(m, nAntennas, nCoherence, nBatchSize, 2)
+            y = reshape(matrix * squeeze(h, 2), Int(nAntennas*24/32),nCoherence,nBatches) + 10^(-snr/20) * crandn( Int(nAntennas*24/32),nCoherence,nBatches)
+            hest = zeros(Complex128, nAntennas,nCoherence,nBatches)
             for j=1:nBatchSize ,t=1:nCoherence
-                    (hest[:,t,j],_) = OMP(y[:,t,j],size(h)[1],m,N,matrix)
+                    (hest[:,t,j],_) = OMP(y[:,t,j],(size(h)[1]),m,Int(nAntennas*24/32),matrix)
                     
                     rate_OMP[iAntenna] += log2(1 + rho*abs2(dot(h[:,t,j],hest[:,t,j]))/max(1e-8,sum(abs2,hest)))/length(h[1,:,:])/nBatches
                 #end
@@ -357,11 +289,6 @@ for iAntenna in 1:3
 end
 
 #-------------------------------------
-# test OMP
-#nBatchSize = 10
-#nBatches = 20
-
-#-------------------------------------
 # Testing with 128 Antennas
 nbr_samples       = 6000
 nbr_antennas_test = 32
@@ -380,12 +307,13 @@ for (alg,nn) in nn_est
     num += 1
 end
 #for index in 1:5
-    #matrix = matrices[3][1,:,:]
-    matrix = eye(nbr_antennas_test)
+    matrix = matrices[3][1,:,:]
+    #matrix = eye(nbr_antennas_test)
     #To do: influence of nCoherence
     for i=1:nbr_samples
         (h, h_cov,_)             = get_channel2(sparsity, nbr_antennas_test, nCoherence, 1, 2)
-        y = reshape(matrix * squeeze(h, 2),size(h)...) + 10^(-snr/20) * crandn(size(h)...)
+        (nAntennas,nCoherence,nBatches) = size(h)
+        y = reshape(matrix * squeeze(h, 2), Int(nAntennas*24/32),nCoherence,nBatches) + 10^(-snr/20) * crandn( Int(nAntennas*24/32),nCoherence,nBatches)
         Test_Set_input[:,:,i]  = squeeze(h, 3)
         #Test_Set_input[:,:,i]  = squeeze(y, 3)
         Test_Set_input[:,:,i]  = sort(abs.(Test_Set_input[:,1,i]), rev=true)
@@ -459,11 +387,12 @@ supp_est            = zeros(Int(m),nBatchSize)
 supp_est_sort       = zeros(Int(m),nBatchSize)
 hest                = zeros(Complex128,nbr_antennas_test, nCoherence, nBatchSize)
 #for index in 1:5
-    #matrix = matrices[3][1,:,:]
-    matrix = eye(nbr_antennas_test)
+    matrix = matrices[3][1,:,:]
+    #matrix = eye(nbr_antennas_test)
     for bb in 1:nBatches
         (h, supp, _) = get_channel2(sparsity, nbr_antennas_test, nCoherence, nBatchSize, 2)
-        y = reshape(matrix * squeeze(h, 2), size(h)...) + 10^(-snr/20) * crandn(size(h)...)
+        (nAntennas,nCoherence,nBatches) = size(h)
+        y = reshape(matrix * squeeze(h, 2),  Int(nAntennas*24/32),nCoherence,nBatches) + 10^(-snr/20) * crandn( Int(nAntennas*24/32),nCoherence,nBatches)
         for j=1:nBatchSize
             for t=1:nCoherence
                 (hest[:,t,j],supp_est[:,j]) = OMP(y[:,t,j],size(h)[1],Int(m),N,matrix)
@@ -504,7 +433,8 @@ end
     matrix = matrices[3][1,:,:]
     for bb in 1:nBatches
         (h, supp,_) = get_channel2(sparsity, nbr_antennas_test, nCoherence, nBatchSize, 2)
-        y = reshape(matrix * squeeze(h, 2), size(h)...) + 10^(-snr/20) * crandn(size(h)...)
+        (nAntennas,nCoherence,nBatches) = size(h)
+        y = reshape(matrix * squeeze(h, 2),  Int(nAntennas*24/32),nCoherence,nBatches) + 10^(-snr/20) * crandn( Int(nAntennas*24/32),nCoherence,nBatches)
         for (alg,est) in algs
             hest = est(y,h,supp)
             for b in 1:nBatchSize
@@ -530,7 +460,7 @@ for (alg,_) in algs
 end
 
 #-------------------------------------------------
-CSV.write("SparseRecovery16.csv", results)
-CSV.write("SparseRecovery16_final.csv", final_results)
-CSV.write("SparseRecovery16_sparsity_test.csv", test_results)
-CSV.write("SparseRecovery16_support_test.csv", support_results)
+CSV.write("SparseRecovery24.csv", results)
+CSV.write("SparseRecovery24_final.csv", final_results)
+CSV.write("SparseRecovery24_sparsity_test.csv", test_results)
+CSV.write("SparseRecovery24_support_test.csv", support_results)

@@ -34,6 +34,13 @@
 \tikzset{CircReLU/.style={mark options={solid},color=TUMGreen,line width=1.0pt}}%
 \tikzset{ToepSoftmax/.style={mark options={solid},color=TUMBeamerYellow,line width=1.0pt}}%
 
+\tikzset{KCircSoftmax/.style={mark options={solid},color=TUMLightBlue, line width=1.0pt, mark=diamond}}%
+\tikzset{KIdReLU/.style={mark options={solid},color=TUMOrange, line width=1.0pt, mark=o}}%
+\tikzset{KIdSoftmax/.style={mark options={solid},color=TUMDarkerBlue, line width=1.0pt, mark=square}}%
+\tikzset{KToepReLU/.style={mark options={solid},color=TUMBlack,line width=1.0pt}}%
+\tikzset{KCircReLU/.style={mark options={solid},color=TUMGreen,line width=1.0pt}}%
+\tikzset{KToepSoftmax/.style={mark options={solid},color=TUMBeamerYellow,line width=1.0pt}}%
+
 \tikzset{OMP/.style={mark options={solid},color=TUMBeamerRed,line width=1.0pt}}%
 
 \tikzset{NNInput/.style={mark options={solid},color=TUMMediumBlue,line width=1.0pt}}%
@@ -914,6 +921,54 @@
     Comparison of input and output with CNN with 8000 samples and SNR = 0dB }
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Learning Curves}
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}%[place/.style={circle,draw=red,fill=red,thick}]
+\begin{axis}[
+    height=\plotheight,
+    width=\columnwidth,
+    ticks=both,
+    xmin = 0, xmax = 8000,
+    ylabel={\small Magnitude},
+    xlabel={\small index},
+    title={},
+    legend entries={
+        \footnotesize KCircSoftmax,
+        \footnotesize KIdReLU,
+        \footnotesize KIdSoftmax,
+        \footnotesize KToepReLU,
+        \footnotesize KCircReLU,
+        \footnotesize KToepSoftmax,
+    },
+    legend style={at={(1.0,1.0)}, anchor=north east},
+]
+
+\addplot[KCircSoftmax,discard if not={Algorithm}{KCircSoftmax} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/kthiri/Downloads/LearningCurve8_sparsity_0.25_snr_0.csv};
+\addplot[KIdReLU,discard if not={Algorithm}{KIdReLU} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/kthiri/Downloads/LearningCurve8_sparsity_0.25_snr_0.csv};
+\addplot[KIdSoftmax,discard if not={Algorithm}{KIdSoftmax} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/kthiri/Downloads/LearningCurve8_sparsity_0.25_snr_0.csv};
+\addplot[KToepReLU,discard if not={Algorithm}{KToepReLU} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/kthiri/Downloads/LearningCurve8_sparsity_0.25_snr_0.csv};
+\addplot[KCircReLU,discard if not={Algorithm}{KCircReLU} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/kthiri/Downloads/LearningCurve8_sparsity_0.25_snr_0.csv};
+\addplot[KToepSoftmax,discard if not={Algorithm}{KToepSoftmax} ]
+    table [ignore chars=",x=Iteration,y=MSE,col sep=comma]
+    {/home/kthiri/Downloads/LearningCurve8_sparsity_0.25_snr_0.csv};           
+    
+\end{axis}
+\end{tikzpicture}
+\caption{
+    Learning curve with 8 antennas and SNR = 0dB }
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \clearpage

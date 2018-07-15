@@ -114,7 +114,10 @@ end
 
 # This method takes a (smaller) network as input and interpolates
 # the values of the kernels and biases to the (larger) new filter length.
-function resize!( est::ConvNN, nIn::Integer; learning_rate=est.learning_rate )
+function resize!( est::ConvNN, nIn::Integer;
+    inTransform = (x) -> x, outTransform = (x) -> x, learning_rate=est.learning_rate )
+    est.inTransform   = inTransform
+    est.outTransform  = outTransform
     nLayers          = length(est.nn_params[:kernels])
     nFilterLength    = length(est.inTransform(ones(nIn)))
     nFilterLengthOld = length(est.nn_params[:kernels][1])
